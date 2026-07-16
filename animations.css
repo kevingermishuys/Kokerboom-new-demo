@@ -184,6 +184,10 @@
    10. WHATSAPP ATTENTION RING — one soft ring 2s after load,
    repeats every 12s. Deliberately subtle.
    ------------------------------------------------------------ */
+/* inset (not transform: scale) grows the ring by a fixed few px regardless
+   of element size — scale() on a full-bleed mobile element pushed its
+   painted bounds past the viewport edge and Chrome counts that toward
+   document scrollWidth, causing real horizontal overflow at 360px. */
 .wa-ring { position: relative; }
 .wa-ring::before {
   content: "";
@@ -195,9 +199,9 @@
   pointer-events: none;
 }
 @keyframes wa-pulse {
-  0%   { opacity: 0.7; transform: scale(1); }
-  6%   { opacity: 0;   transform: scale(1.25); }
-  100% { opacity: 0;   transform: scale(1.25); }
+  0%   { opacity: 0.7; inset: -2px; }
+  6%   { opacity: 0;   inset: -8px; }
+  100% { opacity: 0;   inset: -8px; }
 }
 
 /* ------------------------------------------------------------

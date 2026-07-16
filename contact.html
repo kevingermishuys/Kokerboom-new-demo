@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact — Kokerboom Studio</title>
-  <meta name="description" content="WhatsApp, call, email, or find us on Instagram. Kokerboom Studio is based in Windhoek, Namibia — reach us however suits you.">
+  <meta name="description" content="WhatsApp, call, email, or find us on Instagram and Facebook. Kokerboom Studio is based in Windhoek, Namibia — reach us however suits you.">
   <link rel="canonical" href="https://kokerboom.studio/contact.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kokerboom Studio">
   <meta property="og:title" content="Contact — Kokerboom Studio">
-  <meta property="og:description" content="However you'd like to reach us — WhatsApp, call, email, or Instagram.">
+  <meta property="og:description" content="However you'd like to reach us — WhatsApp, call, email, Instagram, or Facebook.">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -23,7 +23,17 @@
     .page-intro p { font-size: 18px; color: var(--color-muted); }
 
     .contact-grid { display: grid; gap: var(--space-6); }
-    @media (min-width: 768px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 768px) {
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-card--wide {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-6);
+      }
+      .contact-card--wide svg { flex-shrink: 0; }
+      .contact-card__body { display: flex; flex-direction: column; gap: var(--space-1); }
+    }
 
     .contact-card {
       display: flex;
@@ -93,17 +103,25 @@
             <p class="contact-card__value">+264 81 469 7578</p>
             <p class="contact-card__note">Prefer to talk it through? Give us a call.</p>
           </a>
-          <a class="card contact-card card-root reveal" href="mailto:hello@kokerboom.studio">
+          <a class="card contact-card card-root reveal" href="mailto:admin@kokerboom.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             <h2>Email</h2>
-            <p class="contact-card__value">hello@kokerboom.studio</p>
+            <p class="contact-card__value">admin@kokerboom.com</p>
             <p class="contact-card__note">For longer questions or sending files.</p>
           </a>
-          <a class="card contact-card card-root reveal" href="https://instagram.com/kokerboomstudio" target="_blank" rel="noopener">
+          <a class="card contact-card card-root reveal" href="https://instagram.com/kokerboom.studio" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
             <h2>Instagram</h2>
-            <p class="contact-card__value">@kokerboomstudio</p>
+            <p class="contact-card__value">@kokerboom.studio</p>
             <p class="contact-card__note">See recent work and behind-the-scenes.</p>
+          </a>
+          <a class="card contact-card card-root reveal contact-card--wide" href="https://facebook.com/kokerboom.studio" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <div class="contact-card__body">
+              <h2>Facebook</h2>
+              <p class="contact-card__value">@kokerboom.studio</p>
+              <p class="contact-card__note">Updates, reviews, and how to find us.</p>
+            </div>
           </a>
         </div>
         <p class="location-line">Kokerboom Studio · Windhoek, Namibia</p>
@@ -124,15 +142,16 @@
         <div>
           <h2>Contact</h2>
           <ul>
-            <li><a href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp: +27 67 498 9178</a></li>
-            <li><a href="tel:+264814697578">Call: +264 81 469 7578</a></li>
-            <li><a href="mailto:hello@kokerboom.studio">hello@kokerboom.studio</a></li>
+            <li><a href="https://wa.me/27674989178" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-4-1L3 20l1.1-3.6a8.3 8.3 0 0 1-1-4A8.4 8.4 0 0 1 11.5 4 8.4 8.4 0 0 1 21 11.5Z"/></svg>WhatsApp: +27 67 498 9178</a></li>
+            <li><a href="tel:+264814697578"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>Call: +264 81 469 7578</a></li>
+            <li><a href="mailto:admin@kokerboom.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>admin@kokerboom.com</a></li>
           </ul>
         </div>
         <div>
           <h2>Follow</h2>
           <ul>
-            <li><a href="https://instagram.com/kokerboomstudio" target="_blank" rel="noopener">Instagram @kokerboomstudio</a></li>
+            <li><a href="https://instagram.com/kokerboom.studio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Instagram @kokerboom.studio</a></li>
+            <li><a href="https://facebook.com/kokerboom.studio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook @kokerboom.studio</a></li>
           </ul>
         </div>
       </div>
