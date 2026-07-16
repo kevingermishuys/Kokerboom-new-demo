@@ -50,11 +50,25 @@
     .hero__tree-group {
       transform-box: fill-box;
       transform-origin: 50% 100%;
-      animation: tree-sway 7s ease-in-out 2.5s infinite;
+      animation: tree-sway 7s ease-in-out 2.6s infinite;
     }
     @keyframes tree-sway {
       0%, 100% { transform: rotate(-1deg); }
       50% { transform: rotate(1deg); }
+    }
+
+    /* Trunk is a filled, tapered shape (not a stroked line) so it can carry
+       a root flare and bark texture — it grows up from the ground instead
+       of drawing like the thinner branches above it. */
+    .hero__trunk {
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      animation: trunk-grow 500ms var(--ease-reveal) both;
+      animation-delay: 150ms;
+    }
+    @keyframes trunk-grow {
+      from { transform: scaleY(0.15); opacity: 0; }
+      to { transform: scaleY(1); opacity: 1; }
     }
 
     /* Ground line ties the text column and the tree to one shared baseline
@@ -76,7 +90,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-in, .hero__ground, .hero__tree-group {
+      .hero-in, .hero__ground, .hero__tree-group, .hero__trunk {
         animation: none !important;
         transform: none !important;
         opacity: 1 !important;
@@ -179,13 +193,29 @@
                 </g>
               </defs>
               <g class="hero__tree-group">
-                <g fill="none" stroke="var(--color-ink)" stroke-linecap="round" stroke-linejoin="round">
-                  <g stroke-width="8">
-                    <path class="draw-path" d="M120 252 L120 150" style="stroke-dasharray:102;stroke-dashoffset:102;animation-delay:200ms;animation-duration:500ms" />
+                <g class="hero__roots" fill="none" stroke="var(--color-ink)" stroke-width="5" stroke-linecap="round">
+                  <path class="draw-path" d="M95 244 Q75 250 55 254" style="stroke-dasharray:41;stroke-dashoffset:41;animation-delay:450ms;animation-duration:400ms" />
+                  <path class="draw-path" d="M90 246 Q80 254 68 258" style="stroke-dasharray:25;stroke-dashoffset:25;animation-delay:500ms;animation-duration:400ms" />
+                  <path class="draw-path" d="M145 244 Q165 250 185 254" style="stroke-dasharray:41;stroke-dashoffset:41;animation-delay:450ms;animation-duration:400ms" />
+                  <path class="draw-path" d="M150 246 Q160 254 172 258" style="stroke-dasharray:25;stroke-dashoffset:25;animation-delay:500ms;animation-duration:400ms" />
+                </g>
+                <g class="hero__trunk">
+                  <path fill="var(--color-ink)" d="M113 150 C110 175 100 210 88 244 C100 248 140 248 152 244 C140 210 130 175 127 150 Z" />
+                  <g fill="none" stroke="var(--color-bg)" stroke-width="1.5" stroke-linecap="round" opacity="0.35">
+                    <path d="M117 165 Q119 175 116 185" />
+                    <path d="M124 170 Q122 182 125 195" />
+                    <path d="M112 200 Q114 212 110 222" />
+                    <path d="M129 205 Q127 216 131 226" />
                   </g>
+                </g>
+                <g fill="none" stroke="var(--color-ink)" stroke-linecap="round" stroke-linejoin="round">
                   <g stroke-width="6">
                     <path class="draw-path" d="M120 150 Q100 128 75 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:550ms;animation-duration:500ms" />
                     <path class="draw-path" d="M120 150 Q140 128 165 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:550ms;animation-duration:500ms" />
+                  </g>
+                  <g stroke-width="3.5">
+                    <path class="draw-path" d="M96 123 Q84 116 78 108" style="stroke-dasharray:23.5;stroke-dashoffset:23.5;animation-delay:800ms;animation-duration:350ms" />
+                    <path class="draw-path" d="M144 123 Q156 116 162 108" style="stroke-dasharray:23.5;stroke-dashoffset:23.5;animation-delay:800ms;animation-duration:350ms" />
                   </g>
                   <g stroke-width="4.5">
                     <path class="draw-path" d="M75 97.5 Q58 78 45 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:900ms;animation-duration:450ms" />
@@ -205,6 +235,8 @@
                   </g>
                 </g>
                 <g stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" fill="none">
+                  <g transform="translate(78,108) rotate(-50) scale(0.6)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1150ms" /></g>
+                  <g transform="translate(162,108) rotate(50) scale(0.6)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1200ms" /></g>
                   <g transform="translate(33,30) rotate(-28)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1550ms" /></g>
                   <g transform="translate(55,28) rotate(22)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1600ms" /></g>
                   <g transform="translate(85,30) rotate(-29)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1650ms" /></g>
