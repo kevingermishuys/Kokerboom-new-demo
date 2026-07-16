@@ -36,12 +36,17 @@
   /* Radii */
   --radius-pill: 999px;
   --radius-card: 20px;
+  --radius-sm: 8px;       /* small details — animations.css root-line, etc. */
 
   /* Motion */
   --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-line: 750ms;
-  --dur-rise: 600ms;
   --dur-ui: 200ms;
+  --transition-fast: var(--dur-ui);  /* alias animations.css expects */
+  --transition-base: 300ms ease-out; /* card hover lift/shadow */
+
+  /* Shadow — one, for the card-root hover lift only */
+  --shadow-md: 0 12px 28px rgba(26, 36, 30, 0.14);
 
   /* Layout */
   --container-max: 1200px;
@@ -229,24 +234,6 @@ button {
   to { transform: translateY(0); }
 }
 
-/*
-  .rise is visible by default so content never depends on JS running.
-  site.js adds "rise-active" to <body> only once its IntersectionObserver
-  is wired up, and that's the only condition allowed to hide anything.
-*/
-.rise { opacity: 1; transform: none; }
-
-body.rise-active .rise {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity var(--dur-rise) ease-out, transform var(--dur-rise) ease-out;
-}
-
-body.rise-active .rise.is-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .draw-path {
   animation: draw-path 1400ms var(--ease-reveal) forwards;
 }
@@ -272,7 +259,6 @@ body.rise-active .rise.is-in {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal-line > span,
-  .rise,
   .draw-path,
   .arrow-pop {
     animation: none !important;

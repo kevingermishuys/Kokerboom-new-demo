@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&f[]=satoshi@400,700&display=swap">
   <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="animations.css">
   <style>
     .page-intro { padding-top: var(--space-12); max-width: 62ch; }
     .page-intro h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); margin-bottom: var(--space-4); }
@@ -76,8 +77,8 @@
       </nav>
 
       <div class="site-header__cta">
-        <a class="btn btn-secondary" href="tel:+264814697578">Call</a>
-        <a class="btn btn-accent" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
+        <a class="btn btn-secondary btn-sweep" href="tel:+264814697578">Call</a>
+        <a class="btn btn-accent btn-chevron" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
       </div>
     </div>
   </header>
@@ -94,12 +95,12 @@
 
     <section class="section section--surface" aria-labelledby="build-heading">
       <div class="container">
-        <div class="section-head rise">
+        <div class="section-head reveal">
           <p class="kicker">Build packages</p>
           <h2 id="build-heading">A once-off site, built to fit your business</h2>
         </div>
-        <div class="grid-3">
-          <div class="card price-card rise">
+        <div class="grid-3 reveal-group">
+          <div class="card price-card card-root reveal">
             <h3>Starter</h3>
             <p class="price-card__price">FROM R2 300</p>
             <p class="price-card__note">A focused one-page site to get you online properly.</p>
@@ -108,9 +109,9 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>WhatsApp contact button</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Google Business Profile set up</li>
             </ul>
-            <a class="btn btn-secondary" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
           </div>
-          <div class="card price-card price-card--popular rise">
+          <div class="card price-card price-card--popular card-root reveal">
             <span class="price-card__badge">Most popular</span>
             <h3>Growth</h3>
             <p class="price-card__price">FROM R3 000</p>
@@ -121,9 +122,9 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Branding refresh — logo, colours, fonts</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Professional email &amp; domain</li>
             </ul>
-            <a class="btn btn-accent" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+            <a class="btn btn-accent btn-chevron" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
           </div>
-          <div class="card price-card rise">
+          <div class="card price-card card-root reveal">
             <h3>Custom</h3>
             <p class="price-card__price">Let's talk</p>
             <p class="price-card__note">Bigger business, bigger idea? We scope it together.</p>
@@ -132,7 +133,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Online store, bookings, or other custom features</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Scoped and priced together with you</li>
             </ul>
-            <a class="btn btn-secondary" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
           </div>
         </div>
       </div>
@@ -140,22 +141,22 @@
 
     <section class="section section--bg" aria-labelledby="care-heading">
       <div class="container">
-        <div class="section-head rise">
+        <div class="section-head reveal">
           <p class="kicker">Care plans</p>
           <h2 id="care-heading">Keep it running, month to month</h2>
           <p>Once your site is live, a Care Plan keeps it fast, secure, and up to date.</p>
         </div>
-        <div class="grid-3">
-          <div class="card care-card rise">
+        <div class="grid-3 reveal-group">
+          <div class="card care-card card-root reveal">
             <h3>Essential</h3>
             <p class="care-card__price">R1 000<span> /mo</span></p>
             <ul class="price-card__features">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hosting, domain &amp; backups kept running</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Small text &amp; image updates</li>
             </ul>
-            <a class="btn btn-secondary" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
+            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
           </div>
-          <div class="card care-card rise">
+          <div class="card care-card card-root reveal">
             <h3>Growth</h3>
             <p class="care-card__price">R2 000<span> /mo</span></p>
             <ul class="price-card__features">
@@ -163,9 +164,9 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Monthly performance report</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ongoing WhatsApp &amp; Google upkeep</li>
             </ul>
-            <a class="btn btn-secondary" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
+            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
           </div>
-          <div class="card care-card rise">
+          <div class="card care-card card-root reveal">
             <h3>Partner</h3>
             <p class="care-card__price">R4 500<span> /mo</span></p>
             <ul class="price-card__features">
@@ -173,7 +174,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>New pages &amp; content added regularly</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Priority WhatsApp support</li>
             </ul>
-            <a class="btn btn-secondary" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
+            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
           </div>
         </div>
       </div>
@@ -181,8 +182,12 @@
 
     <section class="section section--deep cta-band" aria-labelledby="cta-heading">
       <div class="container">
-        <h2 id="cta-heading" class="rise">Ready to see what your business looks like online?</h2>
-        <a class="btn btn-accent rise" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+        <h2 id="cta-heading" class="reveal-lines">
+          <span class="line"><span>Ready to see</span></span>
+          <span class="line"><span>your business</span></span>
+          <span class="line"><span>online?</span></span>
+        </h2>
+        <a class="btn btn-accent btn-chevron wa-ring reveal" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
       </div>
     </section>
   </main>
@@ -232,6 +237,6 @@
     </div>
   </footer>
 
-  <script src="site.js" defer></script>
+  <script src="animations.js" defer></script>
 </body>
 </html>

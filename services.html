@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&f[]=satoshi@400,700&display=swap">
   <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="animations.css">
   <style>
     .page-intro { padding-top: var(--space-12); max-width: 60ch; }
     .page-intro h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); margin-bottom: var(--space-4); }
@@ -86,8 +87,8 @@
       </nav>
 
       <div class="site-header__cta">
-        <a class="btn btn-secondary" href="tel:+264814697578">Call</a>
-        <a class="btn btn-accent" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
+        <a class="btn btn-secondary btn-sweep" href="tel:+264814697578">Call</a>
+        <a class="btn btn-accent btn-chevron" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
       </div>
     </div>
   </header>
@@ -102,7 +103,7 @@
     </section>
 
     <section class="section section--surface" aria-labelledby="s1-heading">
-      <div class="container service-row">
+      <div class="container service-row reveal">
         <div class="service-row__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>
         </div>
@@ -114,7 +115,7 @@
     </section>
 
     <section class="section section--bg" aria-labelledby="s2-heading">
-      <div class="container service-row service-row--reverse">
+      <div class="container service-row service-row--reverse reveal">
         <div class="service-row__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         </div>
@@ -126,7 +127,7 @@
     </section>
 
     <section class="section section--surface" aria-labelledby="s3-heading">
-      <div class="container service-row">
+      <div class="container service-row reveal">
         <div class="service-row__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-4-1L3 20l1.1-3.6a8.3 8.3 0 0 1-1-4A8.4 8.4 0 0 1 11.5 4 8.4 8.4 0 0 1 21 11.5Z"/></svg>
         </div>
@@ -138,7 +139,7 @@
     </section>
 
     <section class="section section--bg" aria-labelledby="s4-heading">
-      <div class="container service-row service-row--reverse">
+      <div class="container service-row service-row--reverse reveal">
         <div class="service-row__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="19" cy="17" r="2.5"/><circle cx="6" cy="12" r="4"/><path d="M8.5 10.5 12 8m1 5.5 3.5 2"/></svg>
         </div>
@@ -150,7 +151,7 @@
     </section>
 
     <section class="section section--surface" aria-labelledby="s5-heading">
-      <div class="container service-row">
+      <div class="container service-row reveal">
         <div class="service-row__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         </div>
@@ -162,7 +163,7 @@
     </section>
 
     <section class="section section--bg" aria-labelledby="s6-heading">
-      <div class="container service-row service-row--reverse">
+      <div class="container service-row service-row--reverse reveal">
         <div class="service-row__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9m7 10V4m7 15v-7"/></svg>
         </div>
@@ -175,8 +176,12 @@
 
     <section class="section section--deep cta-band" aria-labelledby="cta-heading">
       <div class="container">
-        <h2 id="cta-heading" class="rise">Ready to see what your business looks like online?</h2>
-        <a class="btn btn-accent rise" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+        <h2 id="cta-heading" class="reveal-lines">
+          <span class="line"><span>Ready to see</span></span>
+          <span class="line"><span>your business</span></span>
+          <span class="line"><span>online?</span></span>
+        </h2>
+        <a class="btn btn-accent btn-chevron wa-ring reveal" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
       </div>
     </section>
   </main>
@@ -226,6 +231,6 @@
     </div>
   </footer>
 
-  <script src="site.js" defer></script>
+  <script src="animations.js" defer></script>
 </body>
 </html>

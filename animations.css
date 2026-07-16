@@ -1,0 +1,217 @@
+/* ============================================================
+   KOKERBOOM — ANIMATION LIBRARY (animations.css)
+   Reusable, on-brand motion. Pair with animations.js (20 lines).
+   Rule of use: ONE orchestrated moment per section. These are a
+   menu, not a checklist. All effects respect reduced motion.
+   Depends on theme.css tokens.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. SCROLL REVEAL — the workhorse
+   Add .reveal to any element. JS adds .in when it scrolls into
+   view (once). Inside a .reveal-group, children stagger 90ms.
+   ------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms ease-out, transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+.reveal-group > .reveal:nth-child(1) { transition-delay: 0ms; }
+.reveal-group > .reveal:nth-child(2) { transition-delay: 90ms; }
+.reveal-group > .reveal:nth-child(3) { transition-delay: 180ms; }
+.reveal-group > .reveal:nth-child(4) { transition-delay: 270ms; }
+.reveal-group > .reveal:nth-child(5) { transition-delay: 360ms; }
+.reveal-group > .reveal:nth-child(6) { transition-delay: 450ms; }
+
+/* ------------------------------------------------------------
+   2. HEADLINE LINE REVEAL (scroll version of the hero effect)
+   Markup: h2 > .line > span. JS .in triggers the rise.
+   ------------------------------------------------------------ */
+.line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.line > span {
+  display: block;
+  transform: translateY(112%);
+  transition: transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-lines.in .line:nth-child(1) > span { transform: none; transition-delay: 0ms; }
+.reveal-lines.in .line:nth-child(2) > span { transform: none; transition-delay: 120ms; }
+.reveal-lines.in .line:nth-child(3) > span { transform: none; transition-delay: 240ms; }
+
+/* ------------------------------------------------------------
+   3. IMAGE / PANEL WIPE — grows upward like the tree
+   Add .wipe to an img or a div with a background image.
+   ------------------------------------------------------------ */
+.wipe {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wipe.in { clip-path: inset(0 0 0 0); }
+
+/* ------------------------------------------------------------
+   4. BUTTON MICRO-INTERACTIONS
+   .btn-chevron: gold/rust ^ that nudges up on hover (the arrow
+   motif). Markup: <a class="btn btn-accent btn-chevron">Text
+   <svg class="chev" viewBox="0 0 12 8"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
+   ------------------------------------------------------------ */
+.btn-chevron .chev {
+  width: 12px; height: 8px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
+  transition: transform var(--transition-fast);
+}
+.btn-chevron:hover .chev { transform: translateY(-3px); }
+
+/* .btn-sweep: background sweeps bottom-to-top on hover */
+.btn-sweep { position: relative; overflow: hidden; isolation: isolate; }
+.btn-sweep::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--color-deep);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+.btn-sweep:hover::after { transform: scaleY(1); }
+.btn-sweep:hover { background: transparent; border-color: var(--color-deep); color: var(--color-bg); }
+
+/* ------------------------------------------------------------
+   5. LINK UNDERLINE — slides in from left, brand accent
+   ------------------------------------------------------------ */
+.link-slide {
+  text-decoration: none;
+  font-weight: 700;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  padding-bottom: 3px;
+  transition: background-size 250ms ease-out;
+}
+.link-slide:hover, .link-slide:focus-visible { background-size: 100% 2px; }
+
+/* ------------------------------------------------------------
+   6. CARD HOVER — quiet lift + rust "root" line growing along
+   the bottom edge (roots spreading).
+   ------------------------------------------------------------ */
+.card-root {
+  position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.card-root::after {
+  content: "";
+  position: absolute;
+  left: var(--space-6); right: var(--space-6); bottom: 0;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: var(--radius-sm);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-root:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.card-root:hover::after { transform: scaleX(1); }
+
+/* ------------------------------------------------------------
+   7. SECTION DIVIDER — a branch line that draws itself on
+   scroll, ending in the brand chevron. Markup:
+   <svg class="divider-branch" viewBox="0 0 200 16">
+     <path class="stem" d="M0 12 H176" />
+     <path class="tip"  d="M180 12 L188 4 L196 12" />
+   </svg>
+   ------------------------------------------------------------ */
+.divider-branch { width: 200px; height: 16px; margin-inline: auto; display: block; }
+.divider-branch .stem {
+  fill: none; stroke: var(--color-border); stroke-width: 2.5; stroke-linecap: round;
+  stroke-dasharray: 176; stroke-dashoffset: 176;
+  transition: stroke-dashoffset 800ms ease-out;
+}
+.divider-branch .tip {
+  fill: none; stroke: var(--color-accent); stroke-width: 2.5;
+  stroke-linecap: round; stroke-linejoin: round;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 400ms ease-out 700ms, transform 400ms cubic-bezier(0.16,1,0.3,1) 700ms;
+}
+.divider-branch.in .stem { stroke-dashoffset: 0; }
+.divider-branch.in .tip { opacity: 1; transform: none; }
+
+/* ------------------------------------------------------------
+   8. PROCESS STEPS — vertical line grows down through the
+   "How we work" steps as they reveal. Markup:
+   <ol class="steps"><li class="reveal">…</li>…</ol>
+   ------------------------------------------------------------ */
+.steps {
+  list-style: none;
+  margin: 0; padding: 0;
+  position: relative;
+}
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 11px; top: var(--space-2); bottom: var(--space-2);
+  width: 2px;
+  background: var(--color-border);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1200ms ease-out;
+}
+.steps.in::before { transform: scaleY(1); }
+.steps li {
+  position: relative;
+  padding-left: var(--space-12);
+  padding-block: var(--space-4);
+}
+.steps li::before {
+  content: "";
+  position: absolute;
+  left: 4px; top: calc(var(--space-4) + 6px);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 3px solid var(--color-accent);
+}
+
+/* ------------------------------------------------------------
+   9. STAT COUNT-UP — numbers count to data-count when visible
+   (needs animations.js). Markup:
+   <span class="count" data-count="47">0</span>
+   ------------------------------------------------------------ */
+.count { font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------
+   10. WHATSAPP ATTENTION RING — one soft ring 2s after load,
+   repeats every 12s. Deliberately subtle.
+   ------------------------------------------------------------ */
+.wa-ring { position: relative; }
+.wa-ring::before {
+  content: "";
+  position: absolute; inset: -2px;
+  border-radius: inherit;
+  border: 2px solid var(--color-accent);
+  opacity: 0;
+  animation: wa-pulse 12s ease-out 2s infinite;
+  pointer-events: none;
+}
+@keyframes wa-pulse {
+  0%   { opacity: 0.7; transform: scale(1); }
+  6%   { opacity: 0;   transform: scale(1.25); }
+  100% { opacity: 0;   transform: scale(1.25); }
+}
+
+/* ------------------------------------------------------------
+   Reduced motion: everything lands instantly, nothing pulses.
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .wipe, .line > span,
+  .divider-branch .stem, .divider-branch .tip,
+  .steps::before {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+  .wa-ring::before { animation: none; }
+}

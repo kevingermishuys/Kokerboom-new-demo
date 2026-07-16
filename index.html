@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&f[]=satoshi@400,700&display=swap">
   <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="animations.css">
   <style>
     .hero { padding-top: var(--space-12); }
     .hero__grid {
@@ -111,8 +112,23 @@
     }
     .step h3 { font-size: 18px; margin-bottom: var(--space-2); }
     .step p { color: var(--color-muted); }
+
+    /* animations.css's .steps growing-line is written for a plain single-
+       column list with its own small dot markers. We keep our numbered
+       circle badges instead, so: recenter the line under the 40px circle,
+       hide the library's dot, neutralize its li padding (our .step flex
+       layout already handles spacing), and lift the circle above the line. */
+    .steps::before { left: 19px; }
+    .steps li.step::before { display: none; }
+    .steps li.step { padding-left: 0; padding-block: 0; }
+    .step__num { position: relative; z-index: 1; }
+
+    /* The line only makes sense against a single reading column — the grid
+       below splits steps into two columns, where one line can't connect
+       four items sensibly, so it's desktop-only hidden. */
     @media (min-width: 768px) {
       .steps { grid-template-columns: repeat(2, 1fr); }
+      .steps::before { display: none; }
     }
 
     .proof-list { display: grid; gap: var(--space-4); }
@@ -158,8 +174,8 @@
       </nav>
 
       <div class="site-header__cta">
-        <a class="btn btn-secondary" href="tel:+264814697578">Call</a>
-        <a class="btn btn-accent" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
+        <a class="btn btn-secondary btn-sweep" href="tel:+264814697578">Call</a>
+        <a class="btn btn-accent btn-chevron" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
       </div>
     </div>
   </header>
@@ -177,8 +193,8 @@
             </h1>
             <p class="hero__lede hero-in" style="animation-delay:850ms">We build a real, working demo of your site first — free, no deposit. You see exactly what your business looks like online before you decide anything.</p>
             <div class="hero__ctas">
-              <a class="btn btn-accent hero-in" style="animation-delay:1000ms" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
-              <a class="btn btn-secondary hero-in" style="animation-delay:1100ms" href="tel:+264814697578">Call us</a>
+              <a class="btn btn-accent btn-chevron hero-in" style="animation-delay:1000ms" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
+              <a class="btn btn-secondary btn-sweep hero-in" style="animation-delay:1100ms" href="tel:+264814697578">Call us</a>
             </div>
           </div>
           <div class="hero__visual">
@@ -256,34 +272,34 @@
 
     <section class="section section--surface" aria-labelledby="how-heading">
       <div class="container">
-        <div class="section-head rise">
+        <div class="section-head reveal">
           <p class="kicker">How we work</p>
           <h2 id="how-heading">From first chat to a live site</h2>
           <p>Four steps. No jargon, no surprise invoices.</p>
         </div>
         <ol class="steps">
-          <li class="step rise">
+          <li class="step reveal">
             <span class="step__num" aria-hidden="true">1</span>
             <div>
               <h3>Tell us about your business</h3>
               <p>WhatsApp us your business name, what you sell, and any sites you like. Takes five minutes.</p>
             </div>
           </li>
-          <li class="step rise">
+          <li class="step reveal">
             <span class="step__num" aria-hidden="true">2</span>
             <div>
               <h3>We build your free demo</h3>
               <p>Within days you get a real, working site to click through on your own phone — before you pay anything.</p>
             </div>
           </li>
-          <li class="step rise">
+          <li class="step reveal">
             <span class="step__num" aria-hidden="true">3</span>
             <div>
               <h3>You decide</h3>
               <p>Like it? We polish it and take it live. Want changes? We adjust — no charge, no pressure.</p>
             </div>
           </li>
-          <li class="step rise">
+          <li class="step reveal">
             <span class="step__num" aria-hidden="true">4</span>
             <div>
               <h3>We keep it running</h3>
@@ -296,85 +312,92 @@
 
     <section class="section section--bg" aria-labelledby="services-heading">
       <div class="container">
-        <div class="section-head rise">
+        <div class="section-head reveal">
           <p class="kicker">What we do</p>
           <h2 id="services-heading">Six ways we get your business online</h2>
         </div>
-        <div class="grid-3">
-          <div class="card service-card rise">
+        <div class="grid-3 reveal-group">
+          <div class="card service-card card-root reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>
             <h3>Website design &amp; build</h3>
             <p>A real, working site built around what your business actually sells — not a template with your name on it.</p>
           </div>
-          <div class="card service-card rise">
+          <div class="card service-card card-root reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
             <h3>Get found on Google</h3>
             <p>Your business set up properly on Google so people searching nearby actually find you.</p>
           </div>
-          <div class="card service-card rise">
+          <div class="card service-card card-root reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-4-1L3 20l1.1-3.6a8.3 8.3 0 0 1-1-4A8.4 8.4 0 0 1 11.5 4 8.4 8.4 0 0 1 21 11.5Z"/></svg>
             <h3>WhatsApp Business integration</h3>
             <p>Every button leads straight to a WhatsApp chat — because that's where your customers already are.</p>
           </div>
         </div>
-        <p class="section-foot rise"><a class="btn btn-secondary" href="services.html">See all 6 services</a></p>
+        <p class="section-foot reveal"><a class="btn btn-secondary btn-sweep" href="services.html">See all 6 services</a></p>
       </div>
     </section>
 
     <section class="section section--surface" aria-labelledby="packages-heading">
       <div class="container">
-        <div class="section-head rise">
+        <div class="section-head reveal">
           <p class="kicker">Pricing</p>
           <h2 id="packages-heading">Packages built for growing businesses</h2>
         </div>
-        <div class="grid-3">
-          <div class="card price-card rise">
+        <div class="grid-3 reveal-group">
+          <div class="card price-card card-root reveal">
             <h3>Starter</h3>
             <p class="price-card__price">FROM R2 300</p>
             <p class="price-card__note">A focused one-page site to get you online properly.</p>
-            <a class="btn btn-secondary" href="packages.html">See packages &amp; prices</a>
+            <a class="btn btn-secondary btn-sweep" href="packages.html">See packages &amp; prices</a>
           </div>
-          <div class="card price-card price-card--popular rise">
+          <div class="card price-card price-card--popular card-root reveal">
             <span class="price-card__badge">Most popular</span>
             <h3>Growth</h3>
             <p class="price-card__price">FROM R3 000</p>
             <p class="price-card__note">A full multi-page site — this one is an example of what it looks like.</p>
-            <a class="btn btn-accent" href="packages.html">See packages &amp; prices</a>
+            <a class="btn btn-accent btn-chevron" href="packages.html">See packages &amp; prices<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
           </div>
-          <div class="card price-card rise">
+          <div class="card price-card card-root reveal">
             <h3>Custom</h3>
             <p class="price-card__price">Let's talk</p>
             <p class="price-card__note">Bigger business, bigger idea? We scope it together.</p>
-            <a class="btn btn-secondary" href="packages.html">See packages &amp; prices</a>
+            <a class="btn btn-secondary btn-sweep" href="packages.html">See packages &amp; prices</a>
           </div>
         </div>
       </div>
     </section>
 
+    <div class="container" style="padding-block: var(--space-6);">
+      <svg class="divider-branch" viewBox="0 0 200 16" aria-hidden="true">
+        <path class="stem" d="M0 12 H176" />
+        <path class="tip" d="M180 12 L188 4 L196 12" />
+      </svg>
+    </div>
+
     <section class="section section--bg" aria-labelledby="why-heading">
       <div class="container">
-        <div class="section-head rise">
+        <div class="section-head reveal">
           <p class="kicker">Why Kokerboom</p>
           <h2 id="why-heading">The tree that thrives where little else can</h2>
         </div>
-        <div class="proof-list">
-          <div class="proof-item rise">
+        <div class="proof-list reveal-group">
+          <div class="proof-item reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
             <p>See it before you pay — a real working demo, always, no exceptions.</p>
           </div>
-          <div class="proof-item rise">
+          <div class="proof-item reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
             <p>Built for phones first — most of your customers browse on mobile data, not desktop.</p>
           </div>
-          <div class="proof-item rise">
+          <div class="proof-item reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
             <p>Straight to the person building it — no call centre, no account manager, just us.</p>
           </div>
-          <div class="proof-item rise">
+          <div class="proof-item reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
             <p>Afrikaans or English — however your customers speak, that's how we'll build it.</p>
           </div>
-          <div class="proof-item rise">
+          <div class="proof-item reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
             <p>WhatsApp-reachable — real answers from a real person, not a ticket number.</p>
           </div>
@@ -384,8 +407,12 @@
 
     <section class="section section--deep cta-band" aria-labelledby="cta-heading">
       <div class="container">
-        <h2 id="cta-heading" class="rise">Ready to see what your business looks like online?</h2>
-        <a class="btn btn-accent rise" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+        <h2 id="cta-heading" class="reveal-lines">
+          <span class="line"><span>Ready to see</span></span>
+          <span class="line"><span>your business</span></span>
+          <span class="line"><span>online?</span></span>
+        </h2>
+        <a class="btn btn-accent btn-chevron wa-ring reveal" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
       </div>
     </section>
   </main>
@@ -435,6 +462,6 @@
     </div>
   </footer>
 
-  <script src="site.js" defer></script>
+  <script src="animations.js" defer></script>
 </body>
 </html>
