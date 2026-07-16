@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kokerboom Studio — Web Design in Windhoek, Namibia</title>
+  <meta name="description" content="See your website before you pay a cent. Kokerboom Studio builds real demo websites for Windhoek businesses — mobile-first and WhatsApp-ready.">
+  <link rel="canonical" href="https://kokerboom.studio/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kokerboom Studio">
+  <meta property="og:title" content="Kokerboom Studio — Web Design in Windhoek, Namibia">
+  <meta property="og:description" content="See your website before you pay a cent. A real demo, built free, before you decide anything.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&f[]=satoshi@400,700&display=swap">
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .hero { padding-top: var(--space-12); }
+    .hero__grid {
+      display: grid;
+      gap: var(--space-12);
+      align-items: center;
+    }
+    .hero__eyebrow { color: var(--color-muted); font-weight: 700; }
+    .hero h1 { font-size: clamp(2.4rem, 8vw, 4.2rem); margin-bottom: var(--space-6); }
+    .hero p.hero__lede { max-width: 46ch; font-size: 18px; color: var(--color-muted); margin-bottom: var(--space-8); }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+    .hero__visual {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: var(--space-12) var(--space-8);
+      display: flex;
+      justify-content: center;
+    }
+    .hero__visual svg { width: 100%; max-width: 260px; height: auto; overflow: visible; }
+    @media (min-width: 1024px) {
+      .hero__grid { grid-template-columns: 1.1fr 1fr; gap: var(--space-16); }
+    }
+
+    .steps { display: grid; gap: var(--space-6); }
+    .step { display: flex; gap: var(--space-4); }
+    .step__num {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--color-ink);
+      color: var(--color-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+    .step h3 { font-size: 18px; margin-bottom: var(--space-2); }
+    .step p { color: var(--color-muted); }
+    @media (min-width: 768px) {
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .proof-list { display: grid; gap: var(--space-4); }
+    .proof-item { display: flex; gap: var(--space-3); align-items: flex-start; }
+    .proof-item svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 3px; color: var(--color-accent); }
+    @media (min-width: 768px) { .proof-list { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__row">
+      <a class="site-header__brand" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 58 L32 40" />
+            <path d="M32 40 L20 26" />
+            <path d="M32 40 L44 26" />
+            <path d="M20 26 L12 14" />
+            <path d="M20 26 L26 14" />
+            <path d="M44 26 L38 14" />
+            <path d="M44 26 L52 14" />
+          </g>
+          <g fill="var(--color-accent)">
+            <path d="M12 14 L8.5 20.5 L15.5 20.5 Z" />
+            <path d="M26 14 L22.5 20.5 L29.5 20.5 Z" />
+            <path d="M38 14 L34.5 20.5 L41.5 20.5 Z" />
+            <path d="M52 14 L48.5 20.5 L55.5 20.5 Z" />
+          </g>
+        </svg>
+        Kokerboom Studio
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__cta">
+        <a class="btn btn-secondary" href="tel:+264814697578">Call</a>
+        <a class="btn btn-accent" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section section--bg">
+      <div class="container hero__grid">
+        <div>
+          <p class="kicker hero__eyebrow">Windhoek web design &amp; digital consulting</p>
+          <h1>
+            <span class="reveal-line" style="--i:0"><span>See your website</span></span>
+            <span class="reveal-line" style="--i:1"><span>before you pay</span></span>
+            <span class="reveal-line" style="--i:2"><span>a cent.</span></span>
+          </h1>
+          <p class="hero__lede">We build a real, working demo of your site first — free, no deposit. You see exactly what your business looks like online before you decide anything.</p>
+          <div class="hero__ctas">
+            <a class="btn btn-accent" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+            <a class="btn btn-secondary" href="tel:+264814697578">Call us</a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <svg viewBox="0 0 240 250" aria-hidden="true" overflow="visible">
+            <g fill="none" stroke="var(--color-ink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+              <path class="draw-path" d="M120 217.5 L120 150" style="stroke-dasharray:68;stroke-dashoffset:68;animation-delay:0ms" />
+              <path class="draw-path" d="M120 150 L75 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:350ms" />
+              <path class="draw-path" d="M120 150 L165 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:350ms" />
+              <path class="draw-path" d="M75 97.5 L45 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:700ms" />
+              <path class="draw-path" d="M75 97.5 L97.5 52.5" style="stroke-dasharray:50;stroke-dashoffset:50;animation-delay:700ms" />
+              <path class="draw-path" d="M165 97.5 L142.5 52.5" style="stroke-dasharray:50;stroke-dashoffset:50;animation-delay:700ms" />
+              <path class="draw-path" d="M165 97.5 L195 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:700ms" />
+            </g>
+            <g fill="var(--color-accent)">
+              <path class="arrow-pop" style="animation-delay:1150ms" d="M45 52.5 L39 63 L51 63 Z" />
+              <path class="arrow-pop" style="animation-delay:1250ms" d="M97.5 52.5 L91.5 63 L103.5 63 Z" />
+              <path class="arrow-pop" style="animation-delay:1350ms" d="M142.5 52.5 L136.5 63 L148.5 63 Z" />
+              <path class="arrow-pop" style="animation-delay:1450ms" d="M195 52.5 L189 63 L201 63 Z" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="section-head rise">
+          <p class="kicker">How we work</p>
+          <h2 id="how-heading">From first chat to a live site</h2>
+          <p>Four steps. No jargon, no surprise invoices.</p>
+        </div>
+        <ol class="steps">
+          <li class="step rise">
+            <span class="step__num" aria-hidden="true">1</span>
+            <div>
+              <h3>Tell us about your business</h3>
+              <p>WhatsApp us your business name, what you sell, and any sites you like. Takes five minutes.</p>
+            </div>
+          </li>
+          <li class="step rise">
+            <span class="step__num" aria-hidden="true">2</span>
+            <div>
+              <h3>We build your free demo</h3>
+              <p>Within days you get a real, working site to click through on your own phone — before you pay anything.</p>
+            </div>
+          </li>
+          <li class="step rise">
+            <span class="step__num" aria-hidden="true">3</span>
+            <div>
+              <h3>You decide</h3>
+              <p>Like it? We polish it and take it live. Want changes? We adjust — no charge, no pressure.</p>
+            </div>
+          </li>
+          <li class="step rise">
+            <span class="step__num" aria-hidden="true">4</span>
+            <div>
+              <h3>We keep it running</h3>
+              <p>Once you're happy, we set up hosting, email, and Google, then check in monthly so it keeps working for you.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--bg" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-head rise">
+          <p class="kicker">What we do</p>
+          <h2 id="services-heading">Six ways we get your business online</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card service-card rise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>
+            <h3>Website design &amp; build</h3>
+            <p>A real, working site built around what your business actually sells — not a template with your name on it.</p>
+          </div>
+          <div class="card service-card rise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <h3>Get found on Google</h3>
+            <p>Your business set up properly on Google so people searching nearby actually find you.</p>
+          </div>
+          <div class="card service-card rise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-4-1L3 20l1.1-3.6a8.3 8.3 0 0 1-1-4A8.4 8.4 0 0 1 11.5 4 8.4 8.4 0 0 1 21 11.5Z"/></svg>
+            <h3>WhatsApp Business integration</h3>
+            <p>Every button leads straight to a WhatsApp chat — because that's where your customers already are.</p>
+          </div>
+        </div>
+        <p class="section-foot rise"><a class="btn btn-secondary" href="services.html">See all 6 services</a></p>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="packages-heading">
+      <div class="container">
+        <div class="section-head rise">
+          <p class="kicker">Pricing</p>
+          <h2 id="packages-heading">Packages built for growing businesses</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card price-card rise">
+            <h3>Starter</h3>
+            <p class="price-card__price">FROM R2 300</p>
+            <p class="price-card__note">A focused one-page site to get you online properly.</p>
+            <a class="btn btn-secondary" href="packages.html">See packages &amp; prices</a>
+          </div>
+          <div class="card price-card price-card--popular rise">
+            <span class="price-card__badge">Most popular</span>
+            <h3>Growth</h3>
+            <p class="price-card__price">FROM R3 000</p>
+            <p class="price-card__note">A full multi-page site — this one is an example of what it looks like.</p>
+            <a class="btn btn-accent" href="packages.html">See packages &amp; prices</a>
+          </div>
+          <div class="card price-card rise">
+            <h3>Custom</h3>
+            <p class="price-card__price">Let's talk</p>
+            <p class="price-card__note">Bigger business, bigger idea? We scope it together.</p>
+            <a class="btn btn-secondary" href="packages.html">See packages &amp; prices</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--bg" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-head rise">
+          <p class="kicker">Why Kokerboom</p>
+          <h2 id="why-heading">The tree that thrives where little else can</h2>
+        </div>
+        <div class="proof-list">
+          <div class="proof-item rise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>See it before you pay — a real working demo, always, no exceptions.</p>
+          </div>
+          <div class="proof-item rise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Built for phones first — most of your customers browse on mobile data, not desktop.</p>
+          </div>
+          <div class="proof-item rise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Straight to the person building it — no call centre, no account manager, just us.</p>
+          </div>
+          <div class="proof-item rise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>Afrikaans or English — however your customers speak, that's how we'll build it.</p>
+          </div>
+          <div class="proof-item rise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <p>WhatsApp-reachable — real answers from a real person, not a ticket number.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--deep cta-band" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading" class="rise">Ready to see what your business looks like online?</h2>
+        <a class="btn btn-accent rise" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M32 58 L32 40" />
+                <path d="M32 40 L20 26" />
+                <path d="M32 40 L44 26" />
+                <path d="M20 26 L12 14" />
+                <path d="M20 26 L26 14" />
+                <path d="M44 26 L38 14" />
+                <path d="M44 26 L52 14" />
+              </g>
+              <g fill="var(--color-accent)">
+                <path d="M12 14 L8.5 20.5 L15.5 20.5 Z" />
+                <path d="M26 14 L22.5 20.5 L29.5 20.5 Z" />
+                <path d="M38 14 L34.5 20.5 L41.5 20.5 Z" />
+                <path d="M52 14 L48.5 20.5 L55.5 20.5 Z" />
+              </g>
+            </svg>
+            Kokerboom Studio
+          </div>
+          <p>We build your website before you pay for it — mobile-first, WhatsApp-ready, made for Southern African businesses.</p>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp: +27 67 498 9178</a></li>
+            <li><a href="tel:+264814697578">Call: +264 81 469 7578</a></li>
+            <li><a href="mailto:hello@kokerboom.studio">hello@kokerboom.studio</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Follow</h2>
+          <ul>
+            <li><a href="https://instagram.com/kokerboomstudio" target="_blank" rel="noopener">Instagram @kokerboomstudio</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">Kokerboom Studio · Windhoek, Namibia</div>
+    </div>
+  </footer>
+
+  <script src="site.js" defer></script>
+</body>
+</html>

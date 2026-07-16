@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Kokerboom Studio</title>
+  <meta name="description" content="Kokerboom Studio is a small web design practice in Windhoek, Namibia. No deposit, direct to the person building your site, Afrikaans or English.">
+  <link rel="canonical" href="https://kokerboom.studio/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kokerboom Studio">
+  <meta property="og:title" content="About — Kokerboom Studio">
+  <meta property="og:description" content="The tree that thrives where little else can. Who we are, and why we build the demo first.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&f[]=satoshi@400,700&display=swap">
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .page-intro { padding-top: var(--space-12); max-width: 44ch; }
+    .page-intro h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); }
+
+    .prose { max-width: 62ch; display: flex; flex-direction: column; gap: var(--space-6); }
+    .prose p { font-size: 18px; }
+
+    .stat-strip {
+      display: grid;
+      gap: var(--space-8);
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-8);
+    }
+    .stat-strip__item { border-left: 2px solid var(--color-accent); padding-left: var(--space-4); }
+    .stat-strip__item h3 { font-size: 17px; margin-bottom: var(--space-2); }
+    .stat-strip__item p { color: var(--color-muted); font-size: 15px; }
+    @media (min-width: 768px) {
+      .stat-strip { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__row">
+      <a class="site-header__brand" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 58 L32 40" />
+            <path d="M32 40 L20 26" />
+            <path d="M32 40 L44 26" />
+            <path d="M20 26 L12 14" />
+            <path d="M20 26 L26 14" />
+            <path d="M44 26 L38 14" />
+            <path d="M44 26 L52 14" />
+          </g>
+          <g fill="var(--color-accent)">
+            <path d="M12 14 L8.5 20.5 L15.5 20.5 Z" />
+            <path d="M26 14 L22.5 20.5 L29.5 20.5 Z" />
+            <path d="M38 14 L34.5 20.5 L41.5 20.5 Z" />
+            <path d="M52 14 L48.5 20.5 L55.5 20.5 Z" />
+          </g>
+        </svg>
+        Kokerboom Studio
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__cta">
+        <a class="btn btn-secondary" href="tel:+264814697578">Call</a>
+        <a class="btn btn-accent" href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section section--bg">
+      <div class="container page-intro">
+        <p class="kicker">About</p>
+        <h1>The tree that thrives where little else can.</h1>
+      </div>
+    </section>
+
+    <section class="section section--bg" style="padding-top: 0;" aria-label="Our story">
+      <div class="container prose">
+        <p>Kokerboom Studio is a small web design and digital consulting practice based in Windhoek, Namibia — named after the quiver tree that grows where the ground gives it almost nothing.</p>
+        <p>We work with small and growing Southern African businesses: the hair salon booked solid on WhatsApp, the guesthouse with no site at all, the consultant who's outgrown a Facebook page. Businesses that don't have a marketing budget — just a real need to be found online.</p>
+        <p>So we changed how the first step works. Instead of asking for a deposit and a leap of faith, we build your demo first — a real site you can click through on your own phone — and only ask for payment once you've seen it and said yes.</p>
+        <p>You'll deal with the person actually building your site, not an account manager relaying messages. Afrikaans or English, whichever you're more comfortable in. And if a question comes up on a Tuesday evening, WhatsApp is still the fastest way to reach us.</p>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="means-heading">
+      <div class="container">
+        <div class="section-head rise">
+          <p class="kicker">Why it's different</p>
+          <h2 id="means-heading">What that means for you</h2>
+        </div>
+        <div class="stat-strip">
+          <div class="stat-strip__item rise">
+            <h3>No deposit</h3>
+            <p>You see the real, working demo before you pay a cent.</p>
+          </div>
+          <div class="stat-strip__item rise">
+            <h3>Direct to the designer</h3>
+            <p>No call centre, no account manager — just the person building your site.</p>
+          </div>
+          <div class="stat-strip__item rise">
+            <h3>Afrikaans or English</h3>
+            <p>However your customers speak, that's how we'll build it.</p>
+          </div>
+          <div class="stat-strip__item rise">
+            <h3>WhatsApp-reachable</h3>
+            <p>Real answers from a real person, not a ticket number.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--deep cta-band" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading" class="rise">Ready to see what your business looks like online?</h2>
+        <a class="btn btn-accent rise" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M32 58 L32 40" />
+                <path d="M32 40 L20 26" />
+                <path d="M32 40 L44 26" />
+                <path d="M20 26 L12 14" />
+                <path d="M20 26 L26 14" />
+                <path d="M44 26 L38 14" />
+                <path d="M44 26 L52 14" />
+              </g>
+              <g fill="var(--color-accent)">
+                <path d="M12 14 L8.5 20.5 L15.5 20.5 Z" />
+                <path d="M26 14 L22.5 20.5 L29.5 20.5 Z" />
+                <path d="M38 14 L34.5 20.5 L41.5 20.5 Z" />
+                <path d="M52 14 L48.5 20.5 L55.5 20.5 Z" />
+              </g>
+            </svg>
+            Kokerboom Studio
+          </div>
+          <p>We build your website before you pay for it — mobile-first, WhatsApp-ready, made for Southern African businesses.</p>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="https://wa.me/27674989178" target="_blank" rel="noopener">WhatsApp: +27 67 498 9178</a></li>
+            <li><a href="tel:+264814697578">Call: +264 81 469 7578</a></li>
+            <li><a href="mailto:hello@kokerboom.studio">hello@kokerboom.studio</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Follow</h2>
+          <ul>
+            <li><a href="https://instagram.com/kokerboomstudio" target="_blank" rel="noopener">Instagram @kokerboomstudio</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">Kokerboom Studio · Windhoek, Namibia</div>
+    </div>
+  </footer>
+
+  <script src="site.js" defer></script>
+</body>
+</html>
