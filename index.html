@@ -11,7 +11,6 @@
   <meta property="og:title" content="Kokerboom Studio — Web Design in Windhoek, Namibia">
   <meta property="og:description" content="See your website before you pay a cent. A real demo, built free, before you decide anything.">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -46,32 +45,22 @@
       align-items: flex-end;
       justify-content: center;
     }
-    .hero__visual svg { width: 100%; max-width: 400px; height: auto; overflow: visible; }
-
-    /* The tree settles into a slow, faint sway once its entrance finishes —
-       one living detail on the signature element, not a scattered effect. */
-    .hero__tree-group {
-      transform-box: fill-box;
+    .hero__visual img {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      display: block;
       transform-origin: 50% 100%;
-      animation: tree-sway 7s ease-in-out 2.6s infinite;
+      animation: hero-tree-wipe 900ms var(--ease-reveal) 300ms both,
+        hero-tree-sway 7s ease-in-out 2.4s infinite;
     }
-    @keyframes tree-sway {
+    @keyframes hero-tree-wipe {
+      from { clip-path: inset(100% 0 0 0); }
+      to { clip-path: inset(0 0 0 0); }
+    }
+    @keyframes hero-tree-sway {
       0%, 100% { transform: rotate(-1deg); }
       50% { transform: rotate(1deg); }
-    }
-
-    /* Trunk is a filled, tapered shape (not a stroked line) so it can carry
-       a root flare and bark texture — it grows up from the ground instead
-       of drawing like the thinner branches above it. */
-    .hero__trunk {
-      transform-box: fill-box;
-      transform-origin: 50% 100%;
-      animation: trunk-grow 500ms var(--ease-reveal) both;
-      animation-delay: 150ms;
-    }
-    @keyframes trunk-grow {
-      from { transform: scaleY(0.15); opacity: 0; }
-      to { transform: scaleY(1); opacity: 1; }
     }
 
     /* Ground line ties the text column and the tree to one shared baseline
@@ -93,9 +82,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-in, .hero__ground, .hero__tree-group, .hero__trunk {
+      .hero-in, .hero__ground, .hero__visual img {
         animation: none !important;
         transform: none !important;
+        clip-path: none !important;
         opacity: 1 !important;
       }
     }
@@ -145,23 +135,7 @@
   <header class="site-header">
     <div class="container site-header__row">
       <a class="site-header__brand" href="index.html">
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M32 58 L32 40" />
-            <path d="M32 40 L20 26" />
-            <path d="M32 40 L44 26" />
-            <path d="M20 26 L12 14" />
-            <path d="M20 26 L26 14" />
-            <path d="M44 26 L38 14" />
-            <path d="M44 26 L52 14" />
-          </g>
-          <g fill="var(--color-accent)">
-            <path d="M12 14 L8.5 20.5 L15.5 20.5 Z" />
-            <path d="M26 14 L22.5 20.5 L29.5 20.5 Z" />
-            <path d="M38 14 L34.5 20.5 L41.5 20.5 Z" />
-            <path d="M52 14 L48.5 20.5 L55.5 20.5 Z" />
-          </g>
-        </svg>
+        <img src="logo.png" alt="" width="32" height="32">
         Kokerboom Studio
       </a>
 
@@ -200,72 +174,7 @@
             </div>
           </div>
           <div class="hero__visual">
-            <svg viewBox="0 0 240 260" aria-hidden="true" overflow="visible">
-              <defs>
-                <g id="rosette-tips">
-                  <line x1="0" y1="0" x2="-6.3" y2="-9" />
-                  <line x1="0" y1="0" x2="-3.3" y2="-10.5" />
-                  <line x1="0" y1="0" x2="0" y2="-11" />
-                  <line x1="0" y1="0" x2="3.3" y2="-10.5" />
-                  <line x1="0" y1="0" x2="6.3" y2="-9" />
-                </g>
-              </defs>
-              <g class="hero__tree-group">
-                <g class="hero__roots" fill="none" stroke="var(--color-ink)" stroke-width="5" stroke-linecap="round">
-                  <path class="draw-path" d="M95 244 Q75 250 55 254" style="stroke-dasharray:41;stroke-dashoffset:41;animation-delay:450ms;animation-duration:400ms" />
-                  <path class="draw-path" d="M90 246 Q80 254 68 258" style="stroke-dasharray:25;stroke-dashoffset:25;animation-delay:500ms;animation-duration:400ms" />
-                  <path class="draw-path" d="M145 244 Q165 250 185 254" style="stroke-dasharray:41;stroke-dashoffset:41;animation-delay:450ms;animation-duration:400ms" />
-                  <path class="draw-path" d="M150 246 Q160 254 172 258" style="stroke-dasharray:25;stroke-dashoffset:25;animation-delay:500ms;animation-duration:400ms" />
-                </g>
-                <g class="hero__trunk">
-                  <path fill="var(--color-ink)" d="M113 150 C110 175 100 210 88 244 C100 248 140 248 152 244 C140 210 130 175 127 150 Z" />
-                  <g fill="none" stroke="var(--color-bg)" stroke-width="1.5" stroke-linecap="round" opacity="0.35">
-                    <path d="M117 165 Q119 175 116 185" />
-                    <path d="M124 170 Q122 182 125 195" />
-                    <path d="M112 200 Q114 212 110 222" />
-                    <path d="M129 205 Q127 216 131 226" />
-                  </g>
-                </g>
-                <g fill="none" stroke="var(--color-ink)" stroke-linecap="round" stroke-linejoin="round">
-                  <g stroke-width="6">
-                    <path class="draw-path" d="M120 150 Q100 128 75 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:550ms;animation-duration:500ms" />
-                    <path class="draw-path" d="M120 150 Q140 128 165 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:550ms;animation-duration:500ms" />
-                  </g>
-                  <g stroke-width="3.5">
-                    <path class="draw-path" d="M96 123 Q84 116 78 108" style="stroke-dasharray:23.5;stroke-dashoffset:23.5;animation-delay:800ms;animation-duration:350ms" />
-                    <path class="draw-path" d="M144 123 Q156 116 162 108" style="stroke-dasharray:23.5;stroke-dashoffset:23.5;animation-delay:800ms;animation-duration:350ms" />
-                  </g>
-                  <g stroke-width="4.5">
-                    <path class="draw-path" d="M75 97.5 Q58 78 45 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:900ms;animation-duration:450ms" />
-                    <path class="draw-path" d="M75 97.5 Q88 78 97.5 52.5" style="stroke-dasharray:50;stroke-dashoffset:50;animation-delay:900ms;animation-duration:450ms" />
-                    <path class="draw-path" d="M165 97.5 Q152 78 142.5 52.5" style="stroke-dasharray:50;stroke-dashoffset:50;animation-delay:900ms;animation-duration:450ms" />
-                    <path class="draw-path" d="M165 97.5 Q182 78 195 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:900ms;animation-duration:450ms" />
-                  </g>
-                  <g stroke-width="3">
-                    <path class="draw-path" d="M45 52.5 Q37 40 33 30" style="stroke-dasharray:25.5;stroke-dashoffset:25.5;animation-delay:1250ms;animation-duration:350ms" />
-                    <path class="draw-path" d="M45 52.5 Q52 40 55 28" style="stroke-dasharray:26.5;stroke-dashoffset:26.5;animation-delay:1250ms;animation-duration:350ms" />
-                    <path class="draw-path" d="M97.5 52.5 Q90 40 85 30" style="stroke-dasharray:26;stroke-dashoffset:26;animation-delay:1250ms;animation-duration:350ms" />
-                    <path class="draw-path" d="M97.5 52.5 Q104 40 108 29" style="stroke-dasharray:26;stroke-dashoffset:26;animation-delay:1250ms;animation-duration:350ms" />
-                    <path class="draw-path" d="M142.5 52.5 Q150 40 155 30" style="stroke-dasharray:26;stroke-dashoffset:26;animation-delay:1250ms;animation-duration:350ms" />
-                    <path class="draw-path" d="M142.5 52.5 Q136 40 132 29" style="stroke-dasharray:26;stroke-dashoffset:26;animation-delay:1250ms;animation-duration:350ms" />
-                    <path class="draw-path" d="M195 52.5 Q203 40 207 30" style="stroke-dasharray:25.5;stroke-dashoffset:25.5;animation-delay:1250ms;animation-duration:350ms" />
-                    <path class="draw-path" d="M195 52.5 Q188 40 185 28" style="stroke-dasharray:26.5;stroke-dashoffset:26.5;animation-delay:1250ms;animation-duration:350ms" />
-                  </g>
-                </g>
-                <g stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" fill="none">
-                  <g transform="translate(78,108) rotate(-50) scale(0.6)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1150ms" /></g>
-                  <g transform="translate(162,108) rotate(50) scale(0.6)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1200ms" /></g>
-                  <g transform="translate(33,30) rotate(-28)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1550ms" /></g>
-                  <g transform="translate(55,28) rotate(22)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1600ms" /></g>
-                  <g transform="translate(85,30) rotate(-29)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1650ms" /></g>
-                  <g transform="translate(108,29) rotate(24)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1700ms" /></g>
-                  <g transform="translate(155,30) rotate(29)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1750ms" /></g>
-                  <g transform="translate(132,29) rotate(-24)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1800ms" /></g>
-                  <g transform="translate(207,30) rotate(28)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1850ms" /></g>
-                  <g transform="translate(185,28) rotate(-22)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1900ms" /></g>
-                </g>
-              </g>
-            </svg>
+            <img src="logo.png" alt="Kokerboom Studio — quiver tree mark" width="810" height="792">
           </div>
         </div>
         <div class="hero__ground" aria-hidden="true"></div>
@@ -424,23 +333,7 @@
       <div class="site-footer__grid">
         <div>
           <div class="site-footer__brand">
-            <svg viewBox="0 0 64 64" aria-hidden="true">
-              <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M32 58 L32 40" />
-                <path d="M32 40 L20 26" />
-                <path d="M32 40 L44 26" />
-                <path d="M20 26 L12 14" />
-                <path d="M20 26 L26 14" />
-                <path d="M44 26 L38 14" />
-                <path d="M44 26 L52 14" />
-              </g>
-              <g fill="var(--color-accent)">
-                <path d="M12 14 L8.5 20.5 L15.5 20.5 Z" />
-                <path d="M26 14 L22.5 20.5 L29.5 20.5 Z" />
-                <path d="M38 14 L34.5 20.5 L41.5 20.5 Z" />
-                <path d="M52 14 L48.5 20.5 L55.5 20.5 Z" />
-              </g>
-            </svg>
+            <img src="logo.png" alt="" width="28" height="28">
             Kokerboom Studio
           </div>
           <p>We build your website before you pay for it — mobile-first, WhatsApp-ready, made for Southern African businesses.</p>
