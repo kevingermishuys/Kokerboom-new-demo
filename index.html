@@ -50,7 +50,7 @@
     .hero__tree-group {
       transform-box: fill-box;
       transform-origin: 50% 100%;
-      animation: tree-sway 7s ease-in-out 2.3s infinite;
+      animation: tree-sway 7s ease-in-out 2.5s infinite;
     }
     @keyframes tree-sway {
       0%, 100% { transform: rotate(-1deg); }
@@ -169,21 +169,50 @@
           </div>
           <div class="hero__visual">
             <svg viewBox="0 0 240 260" aria-hidden="true" overflow="visible">
-              <g class="hero__tree-group">
-                <g fill="none" stroke="var(--color-ink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-                  <path class="draw-path" d="M120 252 L120 150" style="stroke-dasharray:102;stroke-dashoffset:102;animation-delay:250ms" />
-                  <path class="draw-path" d="M120 150 L75 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:600ms" />
-                  <path class="draw-path" d="M120 150 L165 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:600ms" />
-                  <path class="draw-path" d="M75 97.5 L45 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:950ms" />
-                  <path class="draw-path" d="M75 97.5 L97.5 52.5" style="stroke-dasharray:50;stroke-dashoffset:50;animation-delay:950ms" />
-                  <path class="draw-path" d="M165 97.5 L142.5 52.5" style="stroke-dasharray:50;stroke-dashoffset:50;animation-delay:950ms" />
-                  <path class="draw-path" d="M165 97.5 L195 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:950ms" />
+              <defs>
+                <g id="rosette-tips">
+                  <line x1="0" y1="0" x2="-6.3" y2="-9" />
+                  <line x1="0" y1="0" x2="-3.3" y2="-10.5" />
+                  <line x1="0" y1="0" x2="0" y2="-11" />
+                  <line x1="0" y1="0" x2="3.3" y2="-10.5" />
+                  <line x1="0" y1="0" x2="6.3" y2="-9" />
                 </g>
-                <g fill="var(--color-accent)">
-                  <path class="arrow-pop" style="animation-delay:1400ms" d="M45 52.5 L39 63 L51 63 Z" />
-                  <path class="arrow-pop" style="animation-delay:1500ms" d="M97.5 52.5 L91.5 63 L103.5 63 Z" />
-                  <path class="arrow-pop" style="animation-delay:1600ms" d="M142.5 52.5 L136.5 63 L148.5 63 Z" />
-                  <path class="arrow-pop" style="animation-delay:1700ms" d="M195 52.5 L189 63 L201 63 Z" />
+              </defs>
+              <g class="hero__tree-group">
+                <g fill="none" stroke="var(--color-ink)" stroke-linecap="round" stroke-linejoin="round">
+                  <g stroke-width="8">
+                    <path class="draw-path" d="M120 252 L120 150" style="stroke-dasharray:102;stroke-dashoffset:102;animation-delay:200ms;animation-duration:500ms" />
+                  </g>
+                  <g stroke-width="6">
+                    <path class="draw-path" d="M120 150 Q100 128 75 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:550ms;animation-duration:500ms" />
+                    <path class="draw-path" d="M120 150 Q140 128 165 97.5" style="stroke-dasharray:69;stroke-dashoffset:69;animation-delay:550ms;animation-duration:500ms" />
+                  </g>
+                  <g stroke-width="4.5">
+                    <path class="draw-path" d="M75 97.5 Q58 78 45 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:900ms;animation-duration:450ms" />
+                    <path class="draw-path" d="M75 97.5 Q88 78 97.5 52.5" style="stroke-dasharray:50;stroke-dashoffset:50;animation-delay:900ms;animation-duration:450ms" />
+                    <path class="draw-path" d="M165 97.5 Q152 78 142.5 52.5" style="stroke-dasharray:50;stroke-dashoffset:50;animation-delay:900ms;animation-duration:450ms" />
+                    <path class="draw-path" d="M165 97.5 Q182 78 195 52.5" style="stroke-dasharray:54;stroke-dashoffset:54;animation-delay:900ms;animation-duration:450ms" />
+                  </g>
+                  <g stroke-width="3">
+                    <path class="draw-path" d="M45 52.5 Q37 40 33 30" style="stroke-dasharray:25.5;stroke-dashoffset:25.5;animation-delay:1250ms;animation-duration:350ms" />
+                    <path class="draw-path" d="M45 52.5 Q52 40 55 28" style="stroke-dasharray:26.5;stroke-dashoffset:26.5;animation-delay:1250ms;animation-duration:350ms" />
+                    <path class="draw-path" d="M97.5 52.5 Q90 40 85 30" style="stroke-dasharray:26;stroke-dashoffset:26;animation-delay:1250ms;animation-duration:350ms" />
+                    <path class="draw-path" d="M97.5 52.5 Q104 40 108 29" style="stroke-dasharray:26;stroke-dashoffset:26;animation-delay:1250ms;animation-duration:350ms" />
+                    <path class="draw-path" d="M142.5 52.5 Q150 40 155 30" style="stroke-dasharray:26;stroke-dashoffset:26;animation-delay:1250ms;animation-duration:350ms" />
+                    <path class="draw-path" d="M142.5 52.5 Q136 40 132 29" style="stroke-dasharray:26;stroke-dashoffset:26;animation-delay:1250ms;animation-duration:350ms" />
+                    <path class="draw-path" d="M195 52.5 Q203 40 207 30" style="stroke-dasharray:25.5;stroke-dashoffset:25.5;animation-delay:1250ms;animation-duration:350ms" />
+                    <path class="draw-path" d="M195 52.5 Q188 40 185 28" style="stroke-dasharray:26.5;stroke-dashoffset:26.5;animation-delay:1250ms;animation-duration:350ms" />
+                  </g>
+                </g>
+                <g stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" fill="none">
+                  <g transform="translate(33,30) rotate(-28)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1550ms" /></g>
+                  <g transform="translate(55,28) rotate(22)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1600ms" /></g>
+                  <g transform="translate(85,30) rotate(-29)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1650ms" /></g>
+                  <g transform="translate(108,29) rotate(24)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1700ms" /></g>
+                  <g transform="translate(155,30) rotate(29)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1750ms" /></g>
+                  <g transform="translate(132,29) rotate(-24)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1800ms" /></g>
+                  <g transform="translate(207,30) rotate(28)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1850ms" /></g>
+                  <g transform="translate(185,28) rotate(-22)"><use href="#rosette-tips" class="arrow-pop" style="animation-delay:1900ms" /></g>
                 </g>
               </g>
             </svg>
