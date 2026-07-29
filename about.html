@@ -172,5 +172,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script src="animations.js" defer></script>
+  <!-- Google Ads conversion: WhatsApp click. Every WhatsApp CTA opens in a
+       new tab (target="_blank"), so the current page never unloads and the
+       tracking beacon always has time to send - no preventDefault or
+       delayed-navigation dance needed, same reasoning as a tel: link. -->
+  <script>
+    (function () {
+      if (typeof gtag !== 'function') return;
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          gtag('event', 'conversion', { 'send_to': 'AW-18328343121/bcLRCP2uqdgcENGk0aNE' });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
