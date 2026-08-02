@@ -413,12 +413,6 @@ button {
   font-size: 14px;
 }
 
-.site-header__cta .btn-secondary { display: none; }
-
-@media (min-width: 640px) {
-  .site-header__cta .btn-secondary { display: inline-flex; }
-}
-
 @media (min-width: 1024px) {
   .site-header__row { flex-wrap: nowrap; }
   .site-nav { order: 2; width: auto; }
@@ -432,6 +426,37 @@ button {
   }
   .site-header__cta { order: 3; }
 }
+
+/* ---------- Floating WhatsApp button ---------- */
+/* Replaces the "WhatsApp us" header CTA: a persistent, icon-only way to
+   reach us that stays put through scrolling instead of living only in the
+   header. Reuses the header's Call button as the visible header CTA now
+   that WhatsApp has its own fixed spot. */
+
+.wa-float {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 60;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: background var(--dur-ui) ease, transform var(--dur-ui) ease;
+}
+
+/* animations.css's .wa-ring sets position: relative (loaded after this
+   file, same specificity, would otherwise win and break the fixed
+   positioning above) — this reasserts it at higher specificity. */
+.wa-float.wa-ring { position: fixed; }
+
+.wa-float:hover { background: var(--color-accent-hover); transform: translateY(-2px); }
+.wa-float svg { width: 26px; height: 26px; }
 
 /* ---------- Site footer ---------- */
 
