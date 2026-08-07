@@ -73,16 +73,15 @@
     }
     /* The tree's own sway is the one orchestrated moment here, so the video
        gets no wipe or rotation of its own — just a fade so it doesn't pop.
-       Its background is colour-matched to the page ground, which is why it
-       carries no card, border, radius or shadow: it has to read as drawn
-       onto the page, not placed on top of it. */
+       The still is a chroma-keyed PNG with a real transparent background
+       (quiver-tree-poster.png), so it carries no card, border, radius or
+       fill of its own — the hero pattern shows straight through it. */
     .hero__visual video,
     .hero__visual .hero__tree-still {
       width: 100%;
       max-width: 520px;
       height: auto;
       display: block;
-      background: var(--color-bg);
       animation: hero-in 800ms var(--ease-reveal) 200ms both;
     }
 
@@ -221,12 +220,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="hero__visual">
             <video autoplay muted loop playsinline
-                   poster="quiver-tree-poster.jpg"
+                   poster="quiver-tree-poster.png"
                    width="920" height="720"
                    aria-hidden="true">
               <source src="quiver-tree-loop.mp4" type="video/mp4">
             </video>
-            <img class="hero__tree-still" src="quiver-tree-poster.jpg" alt="" width="920" height="720">
+            <img class="hero__tree-still" src="quiver-tree-poster.png" alt="" width="920" height="720">
           </div>
         </div>
         <div class="hero__ground" aria-hidden="true"></div>
