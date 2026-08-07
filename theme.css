@@ -31,6 +31,12 @@
   --color-terracotta-hover: #B85A2F;
   --color-on-terracotta: #FFFFFF;
 
+  /* Topographic hero pattern — client-specified value, outside the
+     two-color system above. Used only for the header and hero ground;
+     the pattern's own #B2D235 line color lives in the SVG data URI below,
+     since CSS custom properties can't reach inside one. */
+  --color-header-bg: #F8F4DB;
+
   /* Typography — Athelas + Vanguard combo, built on their closest
      free-licensed stand-ins:
        Newsreader = the Athelas role (bookish serif, headings)
@@ -164,6 +170,19 @@ button {
 }
 
 .section--bg { background: var(--color-bg); }
+
+/* Topographic pattern starts here, not in the header — .hero is the first
+   thing under the sticky header, so this is where the page ground changes.
+   The lines are drawn straight, then feDisplacementMap warps them with a
+   turbulence field into the marbled contour look — cheaper than hand-drawn
+   paths and it tiles cleanly across any hero width. */
+.hero {
+  background-color: var(--color-header-bg);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='800'><filter id='topoFilter'><feTurbulence type='fractalNoise' baseFrequency='0.0028 0.0045' numOctaves='3' seed='30' result='turb'/><feDisplacementMap in='SourceGraphic' in2='turb' scale='240' xChannelSelector='R' yChannelSelector='G'/></filter><g filter='url(%23topoFilter)' transform='rotate(-18 400 400)'><rect width='1400' height='1400' x='-300' y='-300' fill='%23F8F4DB'/><g stroke='%23B2D235' stroke-width='18' fill='none' stroke-linecap='round' opacity='0.5'><path d='M-200,-330 H1000'/><path d='M-200,-220 H1000'/><path d='M-200,-110 H1000'/><path d='M-200,0 H1000'/><path d='M-200,110 H1000'/><path d='M-200,220 H1000'/><path d='M-200,330 H1000'/><path d='M-200,440 H1000'/><path d='M-200,550 H1000'/><path d='M-200,660 H1000'/><path d='M-200,770 H1000'/><path d='M-200,880 H1000'/><path d='M-200,990 H1000'/></g></g></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .section--surface { background: var(--color-surface); }
 /* The closing CTA carries the brand teal at full strength; the footer
    (below) sits a shade deeper so the page ends on a floor rather than on
@@ -422,11 +441,13 @@ button {
 /* ---------- Site header ---------- */
 
 .site-header {
+  /* Sticky (not relative) and z-index 50 (not 10): both already keep the
+     header above the scrolling hero pattern below, and dropping either
+     would lose the stick-on-scroll behavior for no visual gain. */
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(243, 232, 188, 0.92);
-  backdrop-filter: blur(8px);
+  background-color: var(--color-header-bg);
   /* No hairline: the terracotta band is the header's bottom edge now. */
 }
 
@@ -491,17 +512,14 @@ button {
 
 .site-nav ul {
   display: flex;
-  flex-wrap: nowrap;
+  /* Five links don't fit one row under 700px at the 19px/700 size WCAG
+     contrast requires (see .site-nav a below), so the list wraps onto a
+     second row instead of scrolling — every page stays visible with
+     nothing cut off or hidden behind a swipe. */
+  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: var(--space-4);
-  /* The band is wider than its links can be on a phone, so the list
-     scrolls inside the colour rather than stretching it. */
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  gap: 0 var(--space-3);
 }
-
-.site-nav ul::-webkit-scrollbar { display: none; }
 
 .site-nav a {
   display: inline-flex;
@@ -540,7 +558,6 @@ button {
    middle third of the header stops reading as a band. */
 @media (min-width: 1024px) {
   .site-header__row { flex-wrap: nowrap; }
-  .site-nav ul { overflow-x: visible; }
 }
 
 /* ---------- Floating WhatsApp button ---------- */
