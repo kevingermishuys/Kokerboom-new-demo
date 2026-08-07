@@ -19,6 +19,9 @@
   --color-accent-hover: #022E2D;
   --color-deep: #022E2D;     /* deep teal — anchor bands, footer, hovers */
   --color-border: #DDD0A2;   /* sand rule */
+  --color-bark: #174F4E;     /* the teal the quiver-tree mark is drawn in — a
+                                shade greyer than the ink teal. Mark + tagline
+                                only, so the lockup reads as one unit. */
 
   /* Typography — Athelas + Vanguard combo, built on their closest
      free-licensed stand-ins:
@@ -261,6 +264,15 @@ button {
 .section--surface .card { background: var(--color-bg); }
 .section--bg .card { background: var(--color-surface); border-color: var(--color-border); }
 
+/* .btn is nowrap so short CTAs never break mid-phrase, but inside a card
+   that min-content width becomes the card's floor: at the 768px 3-up
+   breakpoint "See packages & prices" was forcing each pricing card to
+   273px against a 219px track and pushing 140px of the page off-screen.
+   Long labels in a narrow card should wrap. min-width: 0 stops any other
+   long child doing the same thing to its grid track. */
+.card .btn { white-space: normal; }
+.grid-2 > *, .grid-3 > * { min-width: 0; }
+
 /* ---------- Motion primitives ---------- */
 
 /* padding/negative-margin pair gives the masked line room for descenders
@@ -426,7 +438,36 @@ button {
   color: var(--color-ink);
 }
 
-.site-header__brand svg { width: 32px; height: 32px; flex-shrink: 0; }
+.site-header__brand svg,
+.site-header__brand img { height: 32px; width: auto; flex-shrink: 0; }
+
+/* Wordmark + tagline stack. Both line-heights are set to 1 so the stack
+   measures exactly 20 + 2 + 10 = 32px — the mark's height — and the
+   header stays the height it was before the tagline existed. */
+.site-header__brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.site-header__wordmark { line-height: 1; }
+
+.site-header__tagline {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  /* Spec said #174F4E at 70%, which lands at 3.7:1 on the sidecar ground
+     and misses AA for 10px text. 80% clears it at 4.7:1. */
+  color: color-mix(in srgb, var(--color-bark) 80%, transparent);
+  margin-top: 2px;
+}
+
+@media (max-width: 767px) {
+  .site-header__tagline { font-size: 9px; }
+}
 
 .site-nav {
   order: 3;
@@ -547,7 +588,8 @@ button {
   margin-bottom: var(--space-3);
 }
 
-.site-footer__brand svg { width: 28px; height: 28px; }
+.site-footer__brand svg,
+.site-footer__brand img { height: 28px; width: auto; }
 
 .site-footer p { color: rgba(243, 232, 188, 0.7); }
 

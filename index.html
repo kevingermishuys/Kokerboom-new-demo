@@ -43,18 +43,14 @@
     }
     .hero__eyebrow { color: var(--color-muted); font-weight: 700; }
 
-    /* The signature lockup: a quiet serif line sets the sentence up, then
-       the condensed black caps land it. The two faces only ever meet here
-       and in the closing CTA — everywhere else one of them is on its own. */
-    .hero__title { margin-bottom: var(--space-6); }
-    .hero__title .display { font-size: clamp(2.9rem, 12vw, 5.4rem); }
-    .hero__title-quiet {
-      display: block;
-      font-size: clamp(1.35rem, 4.6vw, 2rem);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--color-muted);
-      margin-bottom: var(--space-2);
+    /* The whole thesis in one block of condensed black caps — it wraps
+       wherever the column runs out rather than on hand-placed breaks. */
+    .hero__title {
+      font-size: clamp(2.5rem, 10.5vw, 5rem);
+      margin-bottom: var(--space-6);
+      /* Evens the three lines out. Without it the phone breakpoint drops
+         "cent." onto a line of its own. */
+      text-wrap: balance;
     }
     .hero p.hero__lede { max-width: 46ch; font-size: 18px; color: var(--color-muted); margin-bottom: var(--space-8); }
     .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
@@ -75,22 +71,26 @@
       align-items: flex-end;
       justify-content: center;
     }
-    .hero__visual img {
+    /* The tree's own sway is the one orchestrated moment here, so the video
+       gets no wipe or rotation of its own — just a fade so it doesn't pop.
+       Its background is colour-matched to the page ground, which is why it
+       carries no card, border, radius or shadow: it has to read as drawn
+       onto the page, not placed on top of it. */
+    .hero__visual video,
+    .hero__visual .hero__tree-still {
       width: 100%;
-      max-width: 380px;
+      max-width: 520px;
       height: auto;
       display: block;
-      transform-origin: 50% 100%;
-      animation: hero-tree-wipe 900ms var(--ease-reveal) 300ms both,
-        hero-tree-sway 7s ease-in-out 2.4s infinite;
+      background: var(--color-bg);
+      animation: hero-in 800ms var(--ease-reveal) 200ms both;
     }
-    @keyframes hero-tree-wipe {
-      from { clip-path: inset(100% 0 0 0); }
-      to { clip-path: inset(0 0 0 0); }
-    }
-    @keyframes hero-tree-sway {
-      0%, 100% { transform: rotate(-1deg); }
-      50% { transform: rotate(1deg); }
+
+    /* Reduced motion: drop the loop, hold the poster frame instead. */
+    .hero__visual .hero__tree-still { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero__visual video { display: none; }
+      .hero__visual .hero__tree-still { display: block; }
     }
 
     /* Ground line ties the text column and the tree to one shared baseline
@@ -112,7 +112,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-in, .hero__ground, .hero__visual img {
+      .hero-in, .hero__ground, .hero__visual .hero__tree-still {
         animation: none !important;
         transform: none !important;
         clip-path: none !important;
@@ -177,8 +177,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header class="site-header">
     <div class="container site-header__row">
       <a class="site-header__brand" href="index.html">
-        <img src="logo.webp" alt="" width="32" height="32">
-        Kokerboom Studio
+        <img src="kokerboom-logo.png" alt="" width="29" height="32">
+        <span class="site-header__brand-text">
+          <span class="site-header__wordmark">Kokerboom Studio</span>
+          <span class="site-header__tagline">Deep roots. Wide reach.</span>
+        </span>
       </a>
 
       <nav class="site-nav" aria-label="Primary">
@@ -203,11 +206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero__grid">
           <div>
             <p class="kicker hero__eyebrow hero-in" style="animation-delay:0ms">Windhoek web design &amp; digital consulting</p>
-            <h1 class="hero__title">
-              <span class="reveal-line" style="--i:0"><span class="hero__title-quiet">See your website</span></span>
-              <span class="reveal-line" style="--i:1"><span class="display">before you pay</span></span>
-              <span class="reveal-line" style="--i:2"><span class="display">a cent.</span></span>
-            </h1>
+            <h1 class="hero__title display hero-in" style="animation-delay:150ms">See your website before you pay a cent.</h1>
             <p class="hero__lede hero-in" style="animation-delay:850ms">We build a real, working demo of your site first — free, no deposit. You see exactly what your business looks like online before you decide anything.</p>
             <div class="hero__ctas">
               <a class="btn btn-accent btn-chevron hero-in" style="animation-delay:1000ms" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
@@ -215,7 +214,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="hero__visual">
-            <img src="logo.webp" alt="Kokerboom Studio — quiver tree mark" width="405" height="396">
+            <video autoplay muted loop playsinline
+                   poster="quiver-tree-poster.jpg"
+                   width="920" height="720"
+                   aria-hidden="true">
+              <source src="quiver-tree-loop.mp4" type="video/mp4">
+            </video>
+            <img class="hero__tree-still" src="quiver-tree-poster.jpg" alt="" width="920" height="720">
           </div>
         </div>
         <div class="hero__ground" aria-hidden="true"></div>
@@ -374,7 +379,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="site-footer__grid">
         <div>
           <div class="site-footer__brand">
-            <img src="logo.webp" alt="" width="28" height="28">
+            <img src="kokerboom-logo.png" alt="" width="26" height="28">
             Kokerboom Studio
           </div>
           <p>We build your website before you pay for it — mobile-first, WhatsApp-ready, made for Southern African businesses.</p>
