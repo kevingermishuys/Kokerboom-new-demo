@@ -22,6 +22,14 @@
   --color-bark: #174F4E;     /* the teal the quiver-tree mark is drawn in — a
                                 shade greyer than the ink teal. Mark + tagline
                                 only, so the lockup reads as one unit. */
+  --color-terracotta: #D36B3D;      /* the nav band, plus decorative marks and
+                                       rules. It sits at 2.9:1 on the sidecar
+                                       ground, so it is never used to carry
+                                       text or to signal anything on cream —
+                                       only as ornament, or as a ground of its
+                                       own with white on top. */
+  --color-terracotta-hover: #B85A2F;
+  --color-on-terracotta: #FFFFFF;
 
   /* Typography — Athelas + Vanguard combo, built on their closest
      free-licensed stand-ins:
@@ -185,12 +193,12 @@ button {
   content: '';
   width: 8px;
   height: 8px;
-  background: var(--color-accent);
+  background: var(--color-terracotta);
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
 
 .section--deep .kicker::before,
-.section--ink .kicker::before { background: var(--color-bg); }
+.section--ink .kicker::before { background: var(--color-terracotta); }
 
 /* ---------- Buttons ---------- */
 
@@ -213,12 +221,16 @@ button {
 
 .btn:active { transform: scale(0.98); }
 
+/* The primary CTA is the other terracotta surface on the site. Like the
+   nav band it runs at 19px/700 so white on terracotta clears WCAG's
+   large-text bar; at the base 16px it would need 4.5:1 and miss. */
 .btn-accent {
-  background: var(--color-accent);
-  color: var(--color-bg);
+  background: var(--color-terracotta);
+  color: var(--color-on-terracotta);
+  font-size: 19px;
 }
 
-.btn-accent:hover { background: var(--color-accent-hover); }
+.btn-accent:hover { background: var(--color-terracotta-hover); }
 
 /* On a teal band the teal button disappears — invert it to sidecar. */
 .section--deep .btn-accent,
@@ -415,7 +427,7 @@ button {
   z-index: 50;
   background: rgba(243, 232, 188, 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
+  /* No hairline: the terracotta band is the header's bottom edge now. */
 }
 
 .site-header__row {
@@ -469,9 +481,12 @@ button {
   .site-header__tagline { font-size: 9px; }
 }
 
+/* The nav is a terracotta band under the wordmark at every width. It sits
+   outside .site-header__row — a sibling strip rather than a flex child —
+   so the colour runs edge to edge on its own, with an inner .container
+   keeping the links on the page's normal left margin. */
 .site-nav {
-  order: 3;
-  width: 100%;
+  background: var(--color-terracotta);
 }
 
 .site-nav ul {
@@ -479,9 +494,8 @@ button {
   flex-wrap: nowrap;
   justify-content: flex-start;
   gap: var(--space-4);
-  padding-block: var(--space-2);
-  border-top: 1px solid var(--color-border);
-  margin-top: var(--space-2);
+  /* The band is wider than its links can be on a phone, so the list
+     scrolls inside the colour rather than stretching it. */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -492,15 +506,19 @@ button {
 .site-nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  font-size: 15px;
+  min-height: 48px;
+  /* 19px/700 clears WCAG's large-text bar (18.66px bold), where white on
+     this terracotta measures 3.5:1 against the 3:1 requirement. At the
+     old 15px it would have needed 4.5:1 and failed. */
+  font-size: 19px;
   font-weight: 700;
-  color: var(--color-muted);
-  transition: color var(--dur-ui) ease;
+  color: var(--color-on-terracotta);
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--dur-ui) ease;
 }
 
 .site-nav a:hover,
-.site-nav a[aria-current="page"] { color: var(--color-ink); }
+.site-nav a[aria-current="page"] { border-bottom-color: var(--color-on-terracotta); }
 
 .site-header__cta {
   display: flex;
@@ -513,18 +531,16 @@ button {
   font-size: 14px;
 }
 
+@media (min-width: 768px) {
+  .site-nav ul { gap: var(--space-6); }
+}
+
+/* The band keeps its own row on desktop rather than collapsing inline
+   between the brand and the Call button — a band spanning only the
+   middle third of the header stops reading as a band. */
 @media (min-width: 1024px) {
   .site-header__row { flex-wrap: nowrap; }
-  .site-nav { order: 2; width: auto; }
-  .site-nav ul {
-    border-top: none;
-    margin-top: 0;
-    padding-block: 0;
-    overflow-x: visible;
-    justify-content: center;
-    gap: var(--space-6);
-  }
-  .site-header__cta { order: 3; }
+  .site-nav ul { overflow-x: visible; }
 }
 
 /* ---------- Floating WhatsApp button ---------- */

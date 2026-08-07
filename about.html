@@ -47,7 +47,7 @@
       border-top: 1px solid var(--color-border);
       padding-top: var(--space-8);
     }
-    .stat-strip__item { border-left: 2px solid var(--color-accent); padding-left: var(--space-4); }
+    .stat-strip__item { border-left: 2px solid var(--color-terracotta); padding-left: var(--space-4); }
     .stat-strip__item h3 { font-size: 17px; margin-bottom: var(--space-2); }
     .stat-strip__item p { color: var(--color-muted); font-size: 15px; }
     @media (min-width: 768px) {
@@ -78,7 +78,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </span>
       </a>
 
-      <nav class="site-nav" aria-label="Primary">
+      <div class="site-header__cta">
+        <a class="btn btn-secondary btn-sweep" href="tel:+264814697578">Call</a>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
@@ -86,12 +92,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><a href="about.html" aria-current="page">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </nav>
-
-      <div class="site-header__cta">
-        <a class="btn btn-secondary btn-sweep" href="tel:+264814697578">Call</a>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main id="main">
