@@ -31,6 +31,12 @@
   --color-terracotta-hover: #B85A2F;
   --color-on-terracotta: #FFFFFF;
 
+  /* Topographic hero pattern — client-specified value, outside the
+     two-color system above. Used only for the header and hero ground;
+     the pattern's own #B2D235 line color lives in the SVG data URI below,
+     since CSS custom properties can't reach inside one. */
+  --color-header-bg: #F8F4DB;
+
   /* Typography — Athelas + Vanguard combo, built on their closest
      free-licensed stand-ins:
        Newsreader = the Athelas role (bookish serif, headings)
@@ -164,6 +170,29 @@ button {
 }
 
 .section--bg { background: var(--color-bg); }
+
+/* Topographic pattern starts here, not in the header — .hero is the first
+   thing under the sticky header, so this is where the page ground changes.
+   The lines are drawn straight, then feDisplacementMap warps them with a
+   turbulence field into the marbled contour look — cheaper than hand-drawn
+   paths and it tiles cleanly across any hero width. */
+.hero {
+  background-color: var(--color-header-bg);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='1400'><defs><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='0.0028 0.0045' numOctaves='3' seed='30' result='turb'/><feDisplacementMap in='SourceGraphic' in2='turb' scale='260' xChannelSelector='R' yChannelSelector='G'/></filter><linearGradient id='fade' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='white'/><stop offset='38%' stop-color='white'/><stop offset='66%' stop-color='black'/></linearGradient><mask id='fadeMask'><rect width='800' height='1400' fill='url(%23fade)'/></mask></defs><rect width='800' height='1400' fill='%23F8F4DB'/><g mask='url(%23fadeMask)'><g filter='url(%23m)' transform='rotate(-16 400 300)'><g stroke='%23B2D235' stroke-width='14' fill='none' stroke-linecap='round' opacity='0.4'><path d='M-200,-96 H1000'/><path d='M-200,-72 H1000'/><path d='M-200,-48 H1000'/><path d='M-200,-24 H1000'/><path d='M-200,0 H1000'/><path d='M-200,24 H1000'/><path d='M-200,48 H1000'/><path d='M-200,72 H1000'/><path d='M-200,96 H1000'/><path d='M-200,120 H1000'/><path d='M-200,144 H1000'/><path d='M-200,168 H1000'/><path d='M-200,192 H1000'/><path d='M-200,216 H1000'/><path d='M-200,240 H1000'/><path d='M-200,264 H1000'/><path d='M-200,288 H1000'/><path d='M-200,312 H1000'/><path d='M-200,336 H1000'/><path d='M-200,360 H1000'/><path d='M-200,384 H1000'/><path d='M-200,408 H1000'/><path d='M-200,432 H1000'/><path d='M-200,456 H1000'/><path d='M-200,480 H1000'/><path d='M-200,504 H1000'/><path d='M-200,528 H1000'/><path d='M-200,552 H1000'/><path d='M-200,576 H1000'/><path d='M-200,600 H1000'/><path d='M-200,624 H1000'/><path d='M-200,648 H1000'/><path d='M-200,672 H1000'/><path d='M-200,696 H1000'/><path d='M-200,720 H1000'/><path d='M-200,744 H1000'/><path d='M-200,768 H1000'/><path d='M-200,792 H1000'/><path d='M-200,816 H1000'/><path d='M-200,840 H1000'/><path d='M-200,864 H1000'/><path d='M-200,888 H1000'/><path d='M-200,912 H1000'/><path d='M-200,936 H1000'/><path d='M-200,960 H1000'/><path d='M-200,984 H1000'/><path d='M-200,1008 H1000'/><path d='M-200,1032 H1000'/><path d='M-200,1056 H1000'/><path d='M-200,1080 H1000'/><path d='M-200,1104 H1000'/><path d='M-200,1128 H1000'/><path d='M-200,1152 H1000'/><path d='M-200,1176 H1000'/><path d='M-200,1200 H1000'/><path d='M-200,1224 H1000'/><path d='M-200,1248 H1000'/><path d='M-200,1272 H1000'/><path d='M-200,1296 H1000'/><path d='M-200,1320 H1000'/><path d='M-200,1344 H1000'/><path d='M-200,1368 H1000'/><path d='M-200,1392 H1000'/><path d='M-200,1416 H1000'/></g></g></g></svg>");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+}
+
+/* Above ~768px the hero is much wider than it is tall, so the mobile
+   image (scaled to 100% width) would only ever show its dense top
+   sliver — this variant fades out much sooner so the same "pattern
+   thins into plain ground" shape still reads at wide/short aspects. */
+@media (min-width: 768px) {
+  .hero {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='1400'><defs><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='0.0028 0.0045' numOctaves='3' seed='30' result='turb'/><feDisplacementMap in='SourceGraphic' in2='turb' scale='260' xChannelSelector='R' yChannelSelector='G'/></filter><linearGradient id='fade' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='white'/><stop offset='15%' stop-color='white'/><stop offset='30%' stop-color='black'/></linearGradient><mask id='fadeMask'><rect width='800' height='1400' fill='url(%23fade)'/></mask></defs><rect width='800' height='1400' fill='%23F8F4DB'/><g mask='url(%23fadeMask)'><g filter='url(%23m)' transform='rotate(-16 400 300)'><g stroke='%23B2D235' stroke-width='14' fill='none' stroke-linecap='round' opacity='0.4'><path d='M-200,-96 H1000'/><path d='M-200,-72 H1000'/><path d='M-200,-48 H1000'/><path d='M-200,-24 H1000'/><path d='M-200,0 H1000'/><path d='M-200,24 H1000'/><path d='M-200,48 H1000'/><path d='M-200,72 H1000'/><path d='M-200,96 H1000'/><path d='M-200,120 H1000'/><path d='M-200,144 H1000'/><path d='M-200,168 H1000'/><path d='M-200,192 H1000'/><path d='M-200,216 H1000'/><path d='M-200,240 H1000'/><path d='M-200,264 H1000'/><path d='M-200,288 H1000'/><path d='M-200,312 H1000'/><path d='M-200,336 H1000'/><path d='M-200,360 H1000'/><path d='M-200,384 H1000'/><path d='M-200,408 H1000'/><path d='M-200,432 H1000'/><path d='M-200,456 H1000'/><path d='M-200,480 H1000'/><path d='M-200,504 H1000'/><path d='M-200,528 H1000'/><path d='M-200,552 H1000'/><path d='M-200,576 H1000'/><path d='M-200,600 H1000'/><path d='M-200,624 H1000'/><path d='M-200,648 H1000'/><path d='M-200,672 H1000'/><path d='M-200,696 H1000'/><path d='M-200,720 H1000'/><path d='M-200,744 H1000'/><path d='M-200,768 H1000'/><path d='M-200,792 H1000'/><path d='M-200,816 H1000'/><path d='M-200,840 H1000'/><path d='M-200,864 H1000'/><path d='M-200,888 H1000'/><path d='M-200,912 H1000'/><path d='M-200,936 H1000'/><path d='M-200,960 H1000'/><path d='M-200,984 H1000'/><path d='M-200,1008 H1000'/><path d='M-200,1032 H1000'/><path d='M-200,1056 H1000'/><path d='M-200,1080 H1000'/><path d='M-200,1104 H1000'/><path d='M-200,1128 H1000'/><path d='M-200,1152 H1000'/><path d='M-200,1176 H1000'/><path d='M-200,1200 H1000'/><path d='M-200,1224 H1000'/><path d='M-200,1248 H1000'/><path d='M-200,1272 H1000'/><path d='M-200,1296 H1000'/><path d='M-200,1320 H1000'/><path d='M-200,1344 H1000'/><path d='M-200,1368 H1000'/><path d='M-200,1392 H1000'/><path d='M-200,1416 H1000'/></g></g></g></svg>");
+  }
+}
 .section--surface { background: var(--color-surface); }
 /* The closing CTA carries the brand teal at full strength; the footer
    (below) sits a shade deeper so the page ends on a floor rather than on
@@ -422,11 +451,13 @@ button {
 /* ---------- Site header ---------- */
 
 .site-header {
+  /* Sticky (not relative) and z-index 50 (not 10): both already keep the
+     header above the scrolling hero pattern below, and dropping either
+     would lose the stick-on-scroll behavior for no visual gain. */
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(243, 232, 188, 0.92);
-  backdrop-filter: blur(8px);
+  background-color: var(--color-header-bg);
   /* No hairline: the terracotta band is the header's bottom edge now. */
 }
 
@@ -489,19 +520,17 @@ button {
   background: var(--color-terracotta);
 }
 
+.site-nav .container {
+  display: flex;
+  align-items: center;
+}
+
 .site-nav ul {
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  gap: var(--space-4);
-  /* The band is wider than its links can be on a phone, so the list
-     scrolls inside the colour rather than stretching it. */
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  gap: var(--space-6);
 }
-
-.site-nav ul::-webkit-scrollbar { display: none; }
 
 .site-nav a {
   display: inline-flex;
@@ -509,7 +538,9 @@ button {
   min-height: 48px;
   /* 19px/700 clears WCAG's large-text bar (18.66px bold), where white on
      this terracotta measures 3.5:1 against the 3:1 requirement. At the
-     old 15px it would have needed 4.5:1 and failed. */
+     old 15px it would have needed 4.5:1 and failed. Five links at this
+     size never fit one row under ~700px, so under 768px the list moves
+     into the toggle below instead of shrinking past that floor. */
   font-size: 19px;
   font-weight: 700;
   color: var(--color-on-terracotta);
@@ -519,6 +550,43 @@ button {
 
 .site-nav a:hover,
 .site-nav a[aria-current="page"] { border-bottom-color: var(--color-on-terracotta); }
+
+.site-nav__toggle {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--color-on-terracotta);
+  cursor: pointer;
+}
+
+.site-nav__toggle-bars,
+.site-nav__toggle-bars::before,
+.site-nav__toggle-bars::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.site-nav__toggle-bars {
+  position: relative;
+}
+
+.site-nav__toggle-bars::before,
+.site-nav__toggle-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.site-nav__toggle-bars::before { top: -7px; }
+.site-nav__toggle-bars::after { top: 7px; }
 
 .site-header__cta {
   display: flex;
@@ -531,8 +599,53 @@ button {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  .site-nav ul { gap: var(--space-6); }
+/* Below 768px five full-length links can't share one row at an
+   accessible size (see .site-nav a above), so the row becomes a single
+   toggle button and the links stack in a panel underneath it — still
+   one line collapsed, and every page still reachable with a tap. */
+@media (max-width: 767px) {
+  .site-nav__toggle {
+    display: inline-flex;
+    /* Right-aligned to match where a menu control is expected, rather
+       than sitting flush with the logo's left margin above it. */
+    align-self: flex-end;
+  }
+
+  /* Row layout would center the 44px toggle against the tall open list
+     beside it; stack them instead so the list opens below the button. */
+  .site-nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    /* visibility (not just the clip from max-height/overflow) so a closed
+       menu's links drop out of tab order — otherwise keyboard users tab
+       through five invisible links before reaching the page content. */
+    visibility: hidden;
+  }
+
+  .site-nav.is-open ul {
+    max-height: 360px;
+    visibility: visible;
+    padding-bottom: var(--space-2);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Delay the visibility flip on close until the collapse finishes;
+       on open it switches immediately (0s, no delay). */
+    .site-nav ul { transition: max-height var(--dur-ui) ease, visibility 0s var(--dur-ui); }
+    .site-nav.is-open ul { transition: max-height var(--dur-ui) ease, visibility 0s; }
+  }
+
+  .site-nav a { min-height: 44px; }
 }
 
 /* The band keeps its own row on desktop rather than collapsing inline
@@ -540,7 +653,6 @@ button {
    middle third of the header stops reading as a band. */
 @media (min-width: 1024px) {
   .site-header__row { flex-wrap: nowrap; }
-  .site-nav ul { overflow-x: visible; }
 }
 
 /* ---------- Floating WhatsApp button ---------- */

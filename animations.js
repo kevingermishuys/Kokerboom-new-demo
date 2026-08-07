@@ -1,4 +1,4 @@
-/* Kokerboom animation engine — the ONLY JS on the site. */
+/* Kokerboom animation + nav engine — the ONLY JS on the site. */
 (function () {
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -38,4 +38,28 @@
     '.reveal, .reveal-lines, .divider-branch, .steps, .count'
   ).forEach(function (el) { io.observe(el); });
   document.querySelectorAll('.wipe').forEach(function (el) { ioWipe.observe(el); });
+
+  /* Mobile nav toggle: below 768px the link row collapses into this
+     button (see .site-nav__toggle in theme.css). */
+  var navToggle = document.querySelector('.site-nav__toggle');
+  if (navToggle) {
+    var nav = navToggle.closest('.site-nav');
+    navToggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        nav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.focus();
+      }
+    });
+  }
 })();
