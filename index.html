@@ -29,8 +29,9 @@
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&f[]=satoshi@400,700&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..900&family=Newsreader:opsz,wght@6..72,400..600&display=swap">
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="animations.css">
   <style>
@@ -41,7 +42,20 @@
       align-items: end;
     }
     .hero__eyebrow { color: var(--color-muted); font-weight: 700; }
-    .hero h1 { font-size: clamp(2.4rem, 8vw, 4.2rem); margin-bottom: var(--space-6); }
+
+    /* The signature lockup: a quiet serif line sets the sentence up, then
+       the condensed black caps land it. The two faces only ever meet here
+       and in the closing CTA — everywhere else one of them is on its own. */
+    .hero__title { margin-bottom: var(--space-6); }
+    .hero__title .display { font-size: clamp(2.9rem, 12vw, 5.4rem); }
+    .hero__title-quiet {
+      display: block;
+      font-size: clamp(1.35rem, 4.6vw, 2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-muted);
+      margin-bottom: var(--space-2);
+    }
     .hero p.hero__lede { max-width: 46ch; font-size: 18px; color: var(--color-muted); margin-bottom: var(--space-8); }
     .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 
@@ -116,7 +130,9 @@
       color: var(--color-bg);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display);
-      font-weight: 600;
+      font-weight: 900;
+      font-stretch: 62%;
+      font-size: 20px;
     }
     .step h3 { font-size: 18px; margin-bottom: var(--space-2); }
     .step p { color: var(--color-muted); }
@@ -187,10 +203,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero__grid">
           <div>
             <p class="kicker hero__eyebrow hero-in" style="animation-delay:0ms">Windhoek web design &amp; digital consulting</p>
-            <h1>
-              <span class="reveal-line" style="--i:0"><span>See your website</span></span>
-              <span class="reveal-line" style="--i:1"><span>before you pay</span></span>
-              <span class="reveal-line" style="--i:2"><span>a cent.</span></span>
+            <h1 class="hero__title">
+              <span class="reveal-line" style="--i:0"><span class="hero__title-quiet">See your website</span></span>
+              <span class="reveal-line" style="--i:1"><span class="display">before you pay</span></span>
+              <span class="reveal-line" style="--i:2"><span class="display">a cent.</span></span>
             </h1>
             <p class="hero__lede hero-in" style="animation-delay:850ms">We build a real, working demo of your site first — free, no deposit. You see exactly what your business looks like online before you decide anything.</p>
             <div class="hero__ctas">
@@ -343,7 +359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section class="section section--deep cta-band" aria-labelledby="cta-heading">
       <div class="container">
-        <h2 id="cta-heading" class="reveal-lines">
+        <h2 id="cta-heading" class="reveal-lines display">
           <span class="line"><span>Ready to see</span></span>
           <span class="line"><span>your business</span></span>
           <span class="line"><span>online?</span></span>

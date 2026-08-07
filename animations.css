@@ -77,6 +77,13 @@
 .btn-sweep:hover::after { transform: scaleY(1); }
 .btn-sweep:hover { background: transparent; border-color: var(--color-deep); color: var(--color-bg); }
 
+/* On a teal band the deep-teal sweep would be invisible against its own
+   background — flip it to sidecar so the fill still reads. */
+.section--deep .btn-sweep::after,
+.section--ink .btn-sweep::after { background: var(--color-bg); }
+.section--deep .btn-sweep:hover,
+.section--ink .btn-sweep:hover { border-color: var(--color-bg); color: var(--color-ink); }
+
 /* ------------------------------------------------------------
    5. LINK UNDERLINE — slides in from left, brand accent
    ------------------------------------------------------------ */
@@ -198,6 +205,10 @@
   animation: wa-pulse 12s ease-out 2s infinite;
   pointer-events: none;
 }
+/* The CTA-band copy of this button sits on teal, where a teal ring is
+   invisible — pulse in sidecar there instead. */
+.section--deep .wa-ring::before,
+.section--ink .wa-ring::before { border-color: var(--color-bg); }
 @keyframes wa-pulse {
   0%   { opacity: 0.7; inset: -2px; }
   6%   { opacity: 0;   inset: -8px; }
