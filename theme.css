@@ -22,13 +22,23 @@
   --color-bark: #174F4E;     /* the teal the quiver-tree mark is drawn in — a
                                 shade greyer than the ink teal. Mark + tagline
                                 only, so the lockup reads as one unit. */
-  --color-terracotta: #D36B3D;      /* the nav band, plus decorative marks and
-                                       rules. It sits at 2.9:1 on the sidecar
+  --color-terracotta: #BB572A;      /* the nav band, plus decorative marks and
+                                       rules. It sits at 3.8:1 on the sidecar
                                        ground, so it is never used to carry
                                        text or to signal anything on cream —
                                        only as ornament, or as a ground of its
-                                       own with white on top. */
-  --color-terracotta-hover: #B85A2F;
+                                       own with white on top.
+                                       Deepened from #D36B3D (same hue and
+                                       saturation, lightness 53% -> 45%) so
+                                       white on it measures 4.66:1 and clears
+                                       WCAG at ANY size. The old value was
+                                       3.54:1, which only passed by keeping
+                                       every white label on it at 19px/700 —
+                                       a rule the smaller nav links break. */
+  --color-terracotta-hover: #9A4723; /* deepened to stay clearly darker than
+                                        the new base; the old #B85A2F would
+                                        now be almost the base colour and the
+                                        hover would read as no change. */
   --color-on-terracotta: #FFFFFF;
   --color-lime: #B7C24E;            /* DECORATIVE ONLY — the hero's topographic
                                        contour lines and nothing else. Never
@@ -229,9 +239,10 @@ button {
 
 .btn:active { transform: scale(0.98); }
 
-/* The primary CTA is the other terracotta surface on the site. Like the
-   nav band it runs at 19px/700 so white on terracotta clears WCAG's
-   large-text bar; at the base 16px it would need 4.5:1 and miss. */
+/* The primary CTA is the other terracotta surface on the site. It stays at
+   19px/700 because that is the right weight for the page's main action —
+   it no longer has to be that size to pass: since the band was deepened,
+   white on terracotta clears 4.5:1 at any size. */
 .btn-accent {
   background: var(--color-terracotta);
   color: var(--color-on-terracotta);
@@ -499,16 +510,15 @@ button {
 
 .site-nav ul {
   display: flex;
-  /* The five links need 413px and a 360px phone gives the band 312px, so
-     something has to give. It cannot be the type: white on this terracotta
-     is 3.54:1, which clears WCAG only as large text (>=18.66px bold), so
-     dropping below 19px/700 would put the links under the 4.5:1 normal-text
-     bar and fail. So the list wraps to a second row instead. No breakpoint
-     drives this — the row splits wherever the links stop fitting (around
-     461px) and rejoins on its own above that. */
+  /* All five links stay on one row. At 19px they need 413px and a 360px
+     phone only gives the band 312px, so the links run at 14px there and
+     step back up to 19px at 480px, where the full size fits again with
+     room to spare. Wrapping is left on as a backstop: if a device renders
+     the labels wider than measured, the row breaks rather than clipping a
+     link off the edge. */
   flex-wrap: wrap;
   justify-content: flex-start;
-  column-gap: var(--space-4);
+  column-gap: 10px;
   row-gap: 0;
 }
 
@@ -516,10 +526,11 @@ button {
   display: inline-flex;
   align-items: center;
   min-height: 48px;
-  /* 19px/700 clears WCAG's large-text bar (18.66px bold), where white on
-     this terracotta measures 3.5:1 against the 3:1 requirement. At the
-     old 15px it would have needed 4.5:1 and failed. */
-  font-size: 19px;
+  /* 14px is below WCAG's large-text bar, so these links are held to the
+     4.5:1 normal-text requirement — which is why the band was deepened.
+     White on it now measures 4.66:1, and the 48px target height is kept
+     so the smaller label is still an easy tap. */
+  font-size: 14px;
   font-weight: 700;
   color: var(--color-on-terracotta);
   border-bottom: 2px solid transparent;
@@ -538,6 +549,12 @@ button {
   min-height: 44px;
   padding: var(--space-2) var(--space-4);
   font-size: 14px;
+}
+
+/* Past here the full-size links fit on one row again. */
+@media (min-width: 480px) {
+  .site-nav ul { column-gap: var(--space-4); }
+  .site-nav a { font-size: 19px; }
 }
 
 @media (min-width: 768px) {
