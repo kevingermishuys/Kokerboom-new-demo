@@ -22,23 +22,19 @@
   --color-bark: #174F4E;     /* the teal the quiver-tree mark is drawn in — a
                                 shade greyer than the ink teal. Mark + tagline
                                 only, so the lockup reads as one unit. */
-  --color-terracotta: #BB572A;      /* the nav band, plus decorative marks and
-                                       rules. It sits at 3.8:1 on the sidecar
-                                       ground, so it is never used to carry
-                                       text or to signal anything on cream —
-                                       only as ornament, or as a ground of its
-                                       own with white on top.
-                                       Deepened from #D36B3D (same hue and
-                                       saturation, lightness 53% -> 45%) so
-                                       white on it measures 4.66:1 and clears
-                                       WCAG at ANY size. The old value was
-                                       3.54:1, which only passed by keeping
-                                       every white label on it at 19px/700 —
-                                       a rule the smaller nav links break. */
-  --color-terracotta-hover: #9A4723; /* deepened to stay clearly darker than
-                                        the new base; the old #B85A2F would
-                                        now be almost the base colour and the
-                                        hover would read as no change. */
+  --color-terracotta: #E15E0D;      /* the nav band, plus decorative marks and
+                                       rules. Taken from the reference mockup.
+                                       White on it is 3.57:1 — enough for the
+                                       19px/700 labels it carries at >=480px
+                                       (large text, 3:1) but NOT for the 14px
+                                       phone nav, which needs 4.5:1. */
+  --color-terracotta-hover: #C25109;
+  --color-cta: #FE7605;             /* the primary button. The reference uses a
+                                       brighter orange here than on the nav
+                                       band, so it is its own token rather than
+                                       sharing the band's. White on it is
+                                       2.70:1. */
+  --color-cta-hover: #E56800;
   --color-on-terracotta: #FFFFFF;
   --color-lime: #B7C24E;            /* DECORATIVE ONLY — the hero's topographic
                                        contour lines and nothing else. Never
@@ -239,17 +235,16 @@ button {
 
 .btn:active { transform: scale(0.98); }
 
-/* The primary CTA is the other terracotta surface on the site. It stays at
-   19px/700 because that is the right weight for the page's main action —
-   it no longer has to be that size to pass: since the band was deepened,
-   white on terracotta clears 4.5:1 at any size. */
+/* The primary CTA is the other orange surface on the site, and the reference
+   makes it brighter than the nav band, so it carries its own token. It stays
+   at 19px/700, which is the right weight for the page's main action. */
 .btn-accent {
-  background: var(--color-terracotta);
+  background: var(--color-cta);
   color: var(--color-on-terracotta);
   font-size: 19px;
 }
 
-.btn-accent:hover { background: var(--color-terracotta-hover); }
+.btn-accent:hover { background: var(--color-cta-hover); }
 
 /* On a teal band the teal button disappears — invert it to sidecar. */
 .section--deep .btn-accent,
