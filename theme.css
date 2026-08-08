@@ -30,6 +30,14 @@
                                        own with white on top. */
   --color-terracotta-hover: #B85A2F;
   --color-on-terracotta: #FFFFFF;
+  --color-lime: #B7C24E;            /* DECORATIVE ONLY — the hero's topographic
+                                       contour lines and nothing else. Never
+                                       text, never a button, never a state or
+                                       a border that has to mean something: it
+                                       sits at 1.6:1 on the sidecar ground, so
+                                       anything it carried would be unreadable.
+                                       It is also always drawn under content at
+                                       reduced opacity, never over it. */
 
   /* Typography — Athelas + Vanguard combo, built on their closest
      free-licensed stand-ins:
