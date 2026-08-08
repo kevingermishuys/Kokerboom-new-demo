@@ -499,17 +499,18 @@ button {
 
 .site-nav ul {
   display: flex;
-  flex-wrap: nowrap;
+  /* The five links need 413px and a 360px phone gives the band 312px, so
+     something has to give. It cannot be the type: white on this terracotta
+     is 3.54:1, which clears WCAG only as large text (>=18.66px bold), so
+     dropping below 19px/700 would put the links under the 4.5:1 normal-text
+     bar and fail. So the list wraps to a second row instead. No breakpoint
+     drives this — the row splits wherever the links stop fitting (around
+     461px) and rejoins on its own above that. */
+  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: var(--space-4);
-  /* The band is wider than its links can be on a phone, so the list
-     scrolls inside the colour rather than stretching it. */
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  column-gap: var(--space-4);
+  row-gap: 0;
 }
-
-.site-nav ul::-webkit-scrollbar { display: none; }
 
 .site-nav a {
   display: inline-flex;
@@ -540,7 +541,7 @@ button {
 }
 
 @media (min-width: 768px) {
-  .site-nav ul { gap: var(--space-6); }
+  .site-nav ul { column-gap: var(--space-6); }
 }
 
 /* The band keeps its own row on desktop rather than collapsing inline
@@ -548,7 +549,6 @@ button {
    middle third of the header stops reading as a band. */
 @media (min-width: 1024px) {
   .site-header__row { flex-wrap: nowrap; }
-  .site-nav ul { overflow-x: visible; }
 }
 
 /* ---------- Floating WhatsApp button ---------- */
