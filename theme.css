@@ -109,9 +109,9 @@ h1, h2, h3, h4 {
 }
 
 /* The Vanguard role. Reserved for the two loudest moments on the site —
-   the home hero statement and the closing CTA — plus the price figures
-   and step numerals, where condensed numerals earn their keep. Anything
-   more and it stops being a statement. */
+   the home hero statement and the closing CTA — plus the step numerals,
+   where condensed numerals earn their keep. Anything more and it stops
+   being a statement. */
 .display {
   font-family: var(--font-display);
   font-weight: 900;
@@ -291,11 +291,11 @@ button {
 .section--bg .card { background: var(--color-surface); border-color: var(--color-border); }
 
 /* .btn is nowrap so short CTAs never break mid-phrase, but inside a card
-   that min-content width becomes the card's floor: at the 768px 3-up
-   breakpoint "See packages & prices" was forcing each pricing card to
-   273px against a 219px track and pushing 140px of the page off-screen.
-   Long labels in a narrow card should wrap. min-width: 0 stops any other
-   long child doing the same thing to its grid track. */
+   that min-content width becomes the card's floor — at the 768px 3-up
+   breakpoint a long package-card label once forced each card 54px wider
+   than its track and pushed 140px of the page off-screen. Long labels in
+   a narrow card should wrap. min-width: 0 stops any other long child
+   doing the same thing to its grid track. */
 .card .btn { white-space: normal; }
 .grid-2 > *, .grid-3 > * { min-width: 0; }
 
@@ -422,14 +422,6 @@ button {
   padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill);
 }
 .price-card h3 { font-size: 19px; margin-bottom: var(--space-2); }
-.price-card__price {
-  font-family: var(--font-display);
-  font-weight: 900; font-stretch: 62%;
-  font-size: 38px; line-height: 1; letter-spacing: 0.01em;
-  text-transform: uppercase;  /* so "Let's talk" sits level with "FROM R2 300" */
-  margin-bottom: var(--space-4);
-}
-.price-card__price span { font-family: var(--font-body); font-stretch: 100%; font-size: 14px; font-weight: 400; color: var(--color-muted); }
 .price-card p.price-card__note { color: var(--color-muted); font-size: 14px; margin-bottom: var(--space-6); }
 .price-card .btn { margin-top: auto; }
 

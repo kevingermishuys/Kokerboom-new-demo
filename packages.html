@@ -19,13 +19,13 @@
     gtag('config', 'AW-18328343121');
   </script>
   <!-- End Google tag (gtag.js) -->
-  <title>Packages &amp; Prices — Kokerboom Studio</title>
-  <meta name="description" content="Starter from R2 300, Growth from R3 000, Custom on request. Plus Care Plans from R1 000/month. Prices are a starting point — the demo comes first.">
+  <title>Packages — Kokerboom Studio</title>
+  <meta name="description" content="Starter, Growth and Custom build packages, plus monthly Care Plans. See what each one includes, then ask us to quote on your business.">
   <link rel="canonical" href="https://kokerboom.studio/packages.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kokerboom Studio">
-  <meta property="og:title" content="Packages &amp; Prices — Kokerboom Studio">
-  <meta property="og:description" content="Build packages from R2 300 and Care Plans from R1 000/month. The demo comes first, always.">
+  <meta property="og:title" content="Packages — Kokerboom Studio">
+  <meta property="og:description" content="Build packages and monthly Care Plans. See what each one includes, then ask us to quote.">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="favicon.png" type="image/png" sizes="256x256">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -50,15 +50,15 @@
     }
 
     .price-card__features { margin: var(--space-4) 0 var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); }
+    /* The build cards put a note directly above this list, and that note already
+       carries a bottom margin — with the price line gone there is nothing left
+       between them to justify stacking a second gap on top of it. The care cards
+       run the list straight under the heading, so they keep the top margin. */
+    .price-card .price-card__features { margin-top: 0; }
     .price-card__features li { display: flex; gap: var(--space-2); align-items: flex-start; font-size: 15px; color: var(--color-muted); }
     .price-card__features svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: var(--color-accent); }
 
     .care-card { display: flex; flex-direction: column; }
-    .care-card__price {
-      font-family: var(--font-display); font-weight: 900; font-stretch: 62%;
-      font-size: 32px; line-height: 1; letter-spacing: 0.01em; margin-bottom: var(--space-1);
-    }
-    .care-card__price span { font-family: var(--font-body); font-stretch: 100%; font-size: 14px; font-weight: 400; color: var(--color-muted); }
   </style>
 </head>
 <body>
@@ -107,10 +107,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <main id="main">
     <section class="section section--bg">
       <div class="container page-intro">
-        <p class="kicker">Pricing</p>
+        <p class="kicker">Packages</p>
         <h1>Packages built for growing businesses</h1>
-        <p>A starting point, not a final invoice.</p>
-        <p class="reassurance">Prices are a starting point — the demo comes first, and we confirm the figure before you pay anything.</p>
+        <p>What each one includes, so you know what you're asking for.</p>
+        <p class="reassurance">Every site is quoted on what it actually needs. Tell us about your business and we'll put a figure to it before any work starts.</p>
       </div>
     </section>
 
@@ -123,19 +123,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="grid-3 reveal-group">
           <div class="card price-card card-root reveal">
             <h3>Starter</h3>
-            <p class="price-card__price">FROM R2 300</p>
             <p class="price-card__note">A focused one-page site to get you online properly.</p>
             <ul class="price-card__features">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One-page site, built mobile-first</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>WhatsApp contact button</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Google Business Profile set up</li>
             </ul>
-            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request a quote</a>
           </div>
           <div class="card price-card price-card--popular card-root reveal">
             <span class="price-card__badge">Most popular</span>
             <h3>Growth</h3>
-            <p class="price-card__price">FROM R3 000</p>
             <p class="price-card__note">A full multi-page site — this one is an example of what it looks like.</p>
             <ul class="price-card__features">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Everything in Starter</li>
@@ -143,18 +141,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Branding refresh — logo, colours, fonts</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Professional email &amp; domain</li>
             </ul>
-            <a class="btn btn-accent btn-chevron" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
+            <a class="btn btn-accent btn-chevron" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request a quote<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
           </div>
           <div class="card price-card card-root reveal">
             <h3>Custom</h3>
-            <p class="price-card__price">Let's talk</p>
             <p class="price-card__note">Bigger business, bigger idea? We scope it together.</p>
             <ul class="price-card__features">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Everything in Growth</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Online store, bookings, or other custom features</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Scoped and priced together with you</li>
             </ul>
-            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo</a>
+            <a class="btn btn-secondary btn-sweep" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request a quote</a>
           </div>
         </div>
       </div>
@@ -165,12 +162,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="section-head reveal">
           <p class="kicker">Care plans</p>
           <h2 id="care-heading">Keep it running, month to month</h2>
-          <p>Once your site is live, a Care Plan keeps it fast, secure, and up to date.</p>
+          <p>Once your site is live, a Care Plan keeps it fast, secure, and up to date. Quoted monthly, on what your site needs.</p>
         </div>
         <div class="grid-3 reveal-group">
           <div class="card care-card card-root reveal">
             <h3>Essential</h3>
-            <p class="care-card__price">R1 000<span> /mo</span></p>
             <ul class="price-card__features">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hosting, domain &amp; backups kept running</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Small text &amp; image updates</li>
@@ -179,7 +175,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="card care-card card-root reveal">
             <h3>Growth</h3>
-            <p class="care-card__price">R2 000<span> /mo</span></p>
             <ul class="price-card__features">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Everything in Essential</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Monthly performance report</li>
@@ -189,7 +184,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="card care-card card-root reveal">
             <h3>Partner</h3>
-            <p class="care-card__price">R4 500<span> /mo</span></p>
             <ul class="price-card__features">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Everything in Growth</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>New pages &amp; content added regularly</li>
@@ -208,7 +202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="line"><span>your business</span></span>
           <span class="line"><span>online?</span></span>
         </h2>
-        <a class="btn btn-accent btn-chevron wa-ring reveal" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request your free demo<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
+        <a class="btn btn-accent btn-chevron wa-ring reveal" href="https://wa.me/27674989178" target="_blank" rel="noopener">Request a quote<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 6.5 6 1.5 11 6.5"/></svg></a>
       </div>
     </section>
   </main>
